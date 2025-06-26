@@ -40,3 +40,44 @@ input {
     font-weight: 600;
     margin-bottom: 8px;
 }
+/* 🌐 For tablets and mid-sized screens */
+@media (max-width: 768px) {
+  #questionsanswers {
+    padding: 12px;
+    border-radius: 6px;
+  }
+
+  input {
+    font-size: 15px;
+    padding: 8px 10px;
+  }
+
+  #answer {
+    font-size: 16px;
+  }
+
+  #p12, #p01 {
+    font-size: 15px;
+  }
+}
+
+/* 📱 For small phones */
+@media (max-width: 480px) {
+  #questionsanswers {
+    padding: 10px;
+    border-width: 1px;
+  }
+
+  input {
+    font-size: 14px;
+    padding: 7px 8px;
+  }
+
+  #answer {
+    font-size: 15px;
+  }
+
+  #p12, #p01 {
+    font-size: 14px;
+  }
+}

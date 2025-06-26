@@ -85,3 +85,76 @@
     font-size:xx-large;
     margin-left:10%;
 }
+/* 🌐 For devices up to 768px (tablets and large phones) */
+@media (max-width: 768px) {
+  #Maincontainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #container2246 {
+    height: 50vh;
+    border-radius: 20px;
+  }
+
+  .label, .label1, .label2 {
+    margin-left: 5%;
+    font-size: medium;
+    text-align: center;
+  }
+
+  .input, .input2 {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .but1 {
+    width: 70%;
+    margin-left: 15%;
+  }
+
+  #newh {
+    margin-top: 10%;
+    font-size: x-large;
+    margin-left: 5%;
+  }
+
+  #p {
+    margin-left: 10%;
+  }
+}
+
+/* 📱 For small phones up to 480px (most mobiles) */
+@media (max-width: 480px) {
+  #container2246 {
+    height: 40vh;
+    border-radius: 10px;
+  }
+
+  .label, .label1, .label2 {
+    font-size: small;
+  }
+
+  .input, .input2 {
+    padding: 8px;
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .but1 {
+    width: 80%;
+    margin-left: 10%;
+    padding: 8px;
+  }
+
+  #newh {
+    font-size: large;
+    margin-top: 5%;
+    margin-left: 5%;
+  }
+
+  #p {
+    font-size: small;
+    margin-left: 5%;
+  }
+}

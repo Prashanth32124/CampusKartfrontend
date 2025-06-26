@@ -17,3 +17,39 @@
   padding: 10px;
   box-sizing: border-box;
 }
+/* 🌐 For tablets and small laptops */
+@media (max-width: 768px) {
+  .courses-container {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+    gap: 16px;
+  }
+
+  #table {
+    width: 90%;
+  }
+
+  #subcontainer {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+}
+
+/* 📱 For small phones */
+@media (max-width: 480px) {
+  .courses-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  #table {
+    width: 95%;
+  }
+
+  #subcontainer {
+    width: 95%;
+    padding: 8px;
+  }
+}

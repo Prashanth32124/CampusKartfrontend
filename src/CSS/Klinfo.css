@@ -85,3 +85,74 @@
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
+/* 📱 For devices up to 768px (tablets & medium phones) */
+@media (max-width: 768px) {
+  .banner {
+    width: 95%;
+    height: auto;
+  }
+
+  .banner img {
+    height: 25vh;
+  }
+
+  .logo-container {
+    margin: -40px auto 10px;
+  }
+
+  .logo-container img {
+    height: 12vh;
+  }
+
+  .main-heading {
+    font-size: 1.2rem;
+    padding: 0 5px;
+  }
+
+  .navbar ul {
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .navbar ul li button {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+  }
+
+  .content-section {
+    width: 95%;
+    padding: 15px;
+  }
+}
+
+/* 📱 For small phones up to 480px */
+@media (max-width: 480px) {
+  .banner {
+    width: 98%;
+    margin: 20px auto 5px;
+  }
+
+  .banner img {
+    height: 20vh;
+  }
+
+  .logo-container img {
+    height: 10vh;
+  }
+
+  .main-heading {
+    font-size: 1rem;
+    padding: 0 2px;
+  }
+
+  .navbar ul li button {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+
+  .content-section {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+}
