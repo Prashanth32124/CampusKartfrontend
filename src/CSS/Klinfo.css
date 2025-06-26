@@ -1,0 +1,87 @@
+/* Overall wrapper */
+.klinfo-wrapper {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Banner Image */
+.banner {
+  width: 80%;
+  margin: 30px auto 10px;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.banner img {
+  width: 100%;
+  height: 30vh;
+  object-fit: cover;
+}
+
+/* Logo */
+.logo-container {
+  width: fit-content;
+  margin: -60px auto 10px;
+  padding: 10px;
+}
+.logo-container img {
+  height: 15vh;
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Main Heading */
+.main-heading {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  line-height: 1.4;
+}
+
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+}
+.navbar ul li button {
+  background-color: #0073e6;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.navbar ul li button:hover {
+  background-color: #005bb5;
+}
+
+/* Back Button Specific Style */
+.back-btn {
+  background-color: crimson;
+}
+.back-btn:hover {
+  background-color: darkred;
+}
+
+/* Content Section */
+.content-section {
+  width: 90%;
+  margin: 0 auto 40px;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}

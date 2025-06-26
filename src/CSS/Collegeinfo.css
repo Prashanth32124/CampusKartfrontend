@@ -1,0 +1,42 @@
+#questionsanswers {
+    height: 100%;
+    width: 100%;
+    border: 2px solid #000;
+    padding: 16px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+}
+
+/* Input fields should be fully responsive and neatly styled */
+input {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Style for paragraph with id p12 */
+#p12 {
+    color: #e53935; /* softer red */
+    font-weight: 500;
+    margin-top: 8px;
+}
+
+/* Highlighted answer text */
+#answer {
+    font-weight: 700;
+    color: #d32f2f; /* dark red */
+    font-size: 18px;
+}
+
+/* Paragraph with id p01 */
+#p01 {
+    color: #1976d2; /* modern blue */
+    font-weight: 600;
+    margin-bottom: 8px;
+}

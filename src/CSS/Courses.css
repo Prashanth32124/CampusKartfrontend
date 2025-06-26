@@ -1,0 +1,19 @@
+.courses-container {
+  display: flex;
+  flex-direction: row; 
+  justify-content: flex-start;
+  gap: 20px;
+  margin-left: 10%; 
+}
+
+#table {
+  width: 60%; 
+}
+
+#subcontainer {
+  border: solid black;
+  width: 30%; 
+  height: auto;
+  padding: 10px;
+  box-sizing: border-box;
+}

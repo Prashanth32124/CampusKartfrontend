@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f6f8;
+    color: #333;
+    overflow-y: auto;
+}
+
+/* Search Bar */
+#search {
+    margin: 20px auto;
+    display: block;
+    width: 50%;
+    padding: 12px 20px;
+    border-radius: 30px;
+    border: 2px solid #ddd;
+    outline: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+#search:hover,
+#search:focus {
+    border: 2px solid #007bff;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
+}
+
+/* Main Container */
+#Lcontainer {
+    width: 95%;
+    min-height: 100vh;
+    margin: 20px auto;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* College Card */
+.clgcard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    background-color: #fefefe;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.clgcard:hover {
+    transform: scale(1.01);
+}
+
+/* Subcontainers */
+#subcontainer,
+#asubcontainer {
+    flex: 1 1 45%;
+    padding: 16px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+/* Image Styles */
+#img1,
+#img {
+    width: 100%;
+    height: 280px;
+    border-radius: 20px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+#img {
+    height: auto;
+}
+
+#img1:hover,
+#img:hover {
+    transform: scale(1.03);
+}
+
+/* Heading */
+#h3 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #e6f2ff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    width: fit-content;
+    margin: 20px auto;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hidden Utility Class */
+.hidden {
+    display: none !important;
+}
+
+/* Search Button */
+#search_button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 30px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#search_button:hover {
+    background-color: #218838;
+}
