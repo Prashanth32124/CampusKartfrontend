@@ -10,14 +10,12 @@ import Upload from './Upload';
 import Collegeinfo from './Klu/Collegeinfo';
 import Courses from './Klu/Courses';
 import Details from './Details';
-import ProtectedRoute from './Protectedroute';
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route element={<ProtectedRoute />}>
         <Route path="/" element={<Home/>} />
         <Route path="/Newhomepage" element={<Newhomepage/>}/>
         <Route path="/Cyber" element={<Cyber/>}/>
@@ -25,7 +23,6 @@ function App() {
         <Route path="/Upload" element={<Upload/>}/>
         <Route path="/Klu/Collegeinfo" element={<Collegeinfo/>}></Route>
         <Route path="/details" element={<Details/>}/>
-        </Route>
       </Routes>
     </Router>
   );
