@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './CSS/Home.css';
 import p1 from './images/prashanth.png';
-import p2 from './images/rasheed.png';
+import p2 from './images/rasheed1.png';
 import p3 from './images/jafar.png';
 
 function Home() {
