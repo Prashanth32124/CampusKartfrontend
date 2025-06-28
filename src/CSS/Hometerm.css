@@ -20,32 +20,3 @@
     margin-bottom: 16px;
     filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2));
   }
-  /* 🌐 For devices up to 768px (tablets & medium phones) */
-@media (max-width: 768px) {
-  .card-style {
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .icon-style {
-    width: 52px;
-    height: 52px;
-    margin-bottom: 12px;
-  }
-}
-
-/* 📱 For small phones up to 480px */
-@media (max-width: 480px) {
-  .card-style {
-    padding: 16px;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  }
-
-  .icon-style {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 10px;
-  }
-}
