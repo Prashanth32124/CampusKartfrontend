@@ -25,7 +25,7 @@ function Home() {
         </div>
         <div className="right-text">
           <h2>Mudunuri Prashanth</h2>
-          <p>Full Stack Web Developer (MERN)</p>
+          <p> Web Developer (MERN)</p>
         </div>
       </div>
 
