@@ -1,9 +1,89 @@
-#bt1{
-    margin-top:25%;
-    margin-left:28%;
-    padding:30px;
-    border-radius:10px;
-    background-color: aqua;
-    cursor:pointer;
-    width:50%;
+/* Existing Button */
+#bt1 {
+  margin-top: 25%;
+  margin-left: 28%;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: aqua;
+  cursor: pointer;
+  width: 50%;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+#bt1:hover {
+  background-color: #00dddd;
+}
+
+/* Container holding image + text */
+.creator-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto;
+  max-width: 900px;
+  padding: 20px;
+  gap: 40px;
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Left image box */
+.left-img img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #00cccc;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Right text */
+.right-text h2 {
+  font-size: 26px;
+  margin-bottom: 5px;
+}
+
+.right-text p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.right-text h3 {
+  font-size: 20px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.right-text ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.right-text li {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .creator-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .left-img img {
+    width: 140px;
+    height: 140px;
+  }
+
+  #bt1 {
+    margin-top: 15%;
+    margin-left: 5%;
+    width: 90%;
+  }
 }
