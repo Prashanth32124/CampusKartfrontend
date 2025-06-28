@@ -37,9 +37,11 @@
   height: 180px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: top; /* 👈 shift to show face */
   border: 4px solid #00cccc;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
 }
+
 
 .right-text h2 {
   font-size: 26px;
