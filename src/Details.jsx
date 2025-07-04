@@ -66,7 +66,7 @@ function Details() {
       </div>
       <div>
         <p id="entrance">ENTRANCE EXAM LINK</p>
-        <a href="https://www.kluniversity.in/admissions-2025/"/>
+       <a href="https://www.kluniversity.in/admissions-2025/">KL University Admissions 2025</a>
       </div>
     </div>
   );
