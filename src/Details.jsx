@@ -68,7 +68,14 @@ function Details() {
         <p id="entrance">ENTRANCE EXAM LINK</p>
        <a href="https://www.kluniversity.in/admissions-2025/">KL University Admissions 2025</a>
        <p>Guidence for entrance exam link</p>
-       
+        <p id="opene">👉 After opening the site:</p>
+   <ul>
+    <li>1. Click on "Apply Now" </li> 
+    <li>2. Register with email and phone </li>
+    <li>3. Fill details and upload documents </li> 
+    <li>4. Pay using UPI or card 💳  </li>
+    <li>5. Save your Application ID  </li>
+    </ul>
       </div>
     </div>
   );
