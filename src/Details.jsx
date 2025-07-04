@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './CSS/Details.css';
 function Details() {
   const [showApplicationSteps, setShowApplicationSteps] = useState(false);
   const [showDocuments, setShowDocuments] = useState(false);
@@ -44,7 +44,6 @@ function Details() {
         )}
       </div>
 
-      {/* Accordion for Documents */}
       <div style={{ marginTop: '20px' }}>
         <h3
           onClick={() => setShowDocuments(!showDocuments)}
@@ -64,6 +63,10 @@ function Details() {
         <p style={{ marginTop: '10px' }}>
           <strong>Note:</strong> The list of documents mentioned above are the general documents. For more details visit the official website.
         </p>
+      </div>
+      <div>
+        <p id="entrance">ENTRANCE EXAM LINK</p>
+        <a href="https://www.kluniversity.in/admissions-2025/"/>
       </div>
     </div>
   );
