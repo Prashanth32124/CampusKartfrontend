@@ -18,7 +18,7 @@ function Home() {
         Welcome to the website
       </button>
 
-      {/* Creator Section */}
+      
       <div className="creator-container">
         <div className="left-img">
           <img src={p1} alt="Prashanth" />
@@ -29,7 +29,7 @@ function Home() {
         </div>
       </div>
 
-      {/* Researchers Section */}
+      
       <div className="researchers-heading">
         <h3>Researchers</h3>
         <p><i>(They helped in gathering college & CG details)</i></p>

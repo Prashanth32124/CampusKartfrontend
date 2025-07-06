@@ -1,9 +1,13 @@
 import { Navigate, Outlet } from 'react-router-dom';
 
 const ProtectedRoute = () => {
-  const isAuthenticated = localStorage.getItem('token'); // or your logic
+  const isAuthenticated = localStorage.getItem('token');
 
-  return isAuthenticated ? <Outlet /> : <Navigate to="/unauthorized" />;
+  if (isAuthenticated) {
+    return <Outlet />;
+  } else {
+    return <Navigate to="/unauthorized" />;
+  }
 };
 
 export default ProtectedRoute;

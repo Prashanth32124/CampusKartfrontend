@@ -18,15 +18,15 @@ function Login() {
 
   const handleLogin = async () => {
   try {
-    const res = await axios.post("https://loud-adaptive-tamarind.glitch.me/login", {
+    const res = await axios.post("https://rp2backend.vercel.app/login", {
       username,
       password,
     });
 
     alert(res.data.message);
 
-    // ✅ Store a dummy token or real one
-    localStorage.setItem("token", "yes"); // or res.data.token if backend sends one
+
+    localStorage.setItem("token", "yes"); 
 
     navigate("/Newhomepage");
   } catch (err) {

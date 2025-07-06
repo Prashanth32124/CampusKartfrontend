@@ -36,7 +36,7 @@ function Signup() {
     }
   
     try {
-      const res = await axios.post("https://loud-adaptive-tamarind.glitch.me/signup", {
+      const res = await axios.post("https://rp2backend.vercel.app/signup", {
         username,
         password,
         email, 

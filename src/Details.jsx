@@ -14,12 +14,12 @@ function Details() {
       <li><a href="upload">Back to colleges page</a></li>
     </ul>
   </nav>
+  
       <h2>KL University, Vijayawada Application Process 2025</h2>
       <p>
         KL (Deemed to be University) Vijayawada application process 2025 is conducted online for UG, PG and PhD courses. The application fee at this university ranges between INR 1,000 and INR 1,100. For better clarity, students are advised to visit the official website.
       </p>
 
-      {/* Accordion for Application Steps */}
       <div style={{ marginTop: '20px' }}>
         <h3
           onClick={() => setShowApplicationSteps(!showApplicationSteps)}
