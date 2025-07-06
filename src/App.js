@@ -17,13 +17,13 @@ function App() {
     <Router>
       <Routes>
         {/* ✅ Public Routes */}
+         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
 
         {/* ✅ All Protected Routes (Only accessible after login) */}
         <Route element={<ProtectedRoute />}>
-          <Route path="/" element={<Home />} />
           <Route path="/Newhomepage" element={<Newhomepage />} />
           <Route path="/Cyber" element={<Cyber />} />
           <Route path="/Klu/Collegeinfo" element={<Collegeinfo />} />
