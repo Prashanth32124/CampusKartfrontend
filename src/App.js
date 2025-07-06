@@ -1,27 +1,27 @@
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './Login';
 import Signup from './Signup';
 import Home from './Home';
 import Newhomepage from './Newhomepage';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Cyber from './Cyber';
 import Klinfo from './Klinfo';
 import Upload from './Upload';
 import Collegeinfo from './Klu/Collegeinfo';
 import Courses from './Klu/Courses';
 import Details from './Details';
-import ProtectedRoute from './Protectedroute';
 import Unauthorized from './Unauthorized';
+import ProtectedRoute from './Protectedroute';
+
 function App() {
   return (
     <Router>
       <Routes>
-        {/* Public routes */}
+        {/* ✅ Public Routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
 
-        {/* Protected routes */}
+        {/* ✅ All Protected Routes (Only accessible after login) */}
         <Route element={<ProtectedRoute />}>
           <Route path="/" element={<Home />} />
           <Route path="/Newhomepage" element={<Newhomepage />} />
