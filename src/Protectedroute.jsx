@@ -1,12 +1,14 @@
 import { Navigate, Outlet } from 'react-router-dom';
 
 const ProtectedRoute = () => {
-  const isAuthenticated = localStorage.getItem('token');
+  const token = localStorage.getItem('token');
+  console.log("✅ [ProtectedRoute] Token:", token);
 
-  if (isAuthenticated) {
+  if (token) {
     return <Outlet />;
   } else {
-    return <Navigate to="/unauthorized" />;
+    console.log("❌ No token found. Redirecting to /unauthorized");
+    return <Navigate to="/unauthorized" replace />;
   }
 };
 
