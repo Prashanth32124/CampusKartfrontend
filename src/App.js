@@ -16,16 +16,18 @@ function App() {
   return (
     <Router>
       <Routes>
+        {/* Public routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/Newhomepage" element={<Newhomepage />} />
-        <Route path="/Cyber" element={<Cyber />} />
-        <Route path="/Klu/Collegeinfo" element={<Collegeinfo />} />
-        <Route path="/Klu/Courses" element={<Courses />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
 
+        {/* Protected routes */}
         <Route element={<ProtectedRoute />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/Newhomepage" element={<Newhomepage />} />
+          <Route path="/Cyber" element={<Cyber />} />
+          <Route path="/Klu/Collegeinfo" element={<Collegeinfo />} />
+          <Route path="/Klu/Courses" element={<Courses />} />
           <Route path="/Upload" element={<Upload />} />
           <Route path="/Klinfo" element={<Klinfo />} />
           <Route path="/details" element={<Details />} />
