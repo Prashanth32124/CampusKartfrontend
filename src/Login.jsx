@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './CSS/Login.css'; // Make sure this points to your original CSS
+import './CSS/Login.css'; // Your CSS file path
 
 function Login() {
   const navigate = useNavigate();
@@ -21,40 +21,51 @@ function Login() {
         password,
       });
 
-      // Optionally use res.data.token here if backend sends a real token
+      // Save token (can be improved with real JWT in future)
       localStorage.setItem("token", "yes");
 
-      alert("Login successful!");
+      alert(`Welcome back, ${username}!`);
       navigate('/Newhomepage');
     } catch (err) {
-      setError(err.response?.data?.message || "Login failed");
+      setError(err.response?.data || "Login failed. Please try again.");
     }
   };
 
   return (
-    <div className="login-body">
-      <h1 className="login-title">WELCOME TO THE LOGIN PAGE</h1>
-      <p className="login-subtext">Welcome back</p>
+    <>
+      <h1 id="h1">WELCOME TO THE LOGIN PAGE</h1>
+      <p id="newp">Welcome back</p>
 
-      <div className="login-container">
+      <div id="container1">
+        <label className="labelL">Username</label>
         <input
+          id="username"
           type="text"
           placeholder="Please enter the username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          className="login-input"
         />
+
+        <label className="labelL1">Password</label>
         <input
+          id="password"
           type="password"
           placeholder="Please enter the password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="login-input"
         />
-        <button onClick={handleLogin} className="login-button">Login</button>
-        {error && <p className="login-error">{error}</p>}
+
+        <div id="container21240">
+          <button id="bt11" onClick={handleLogin}>Login</button>
+        </div>
+
+        {error && (
+          <p style={{ color: 'red', textAlign: 'center', marginTop: '10px' }}>
+            {error}
+          </p>
+        )}
       </div>
-    </div>
+    </>
   );
 }
 
