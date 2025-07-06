@@ -8,6 +8,7 @@ const ProtectedRoute = () => {
     token &&
     token !== 'undefined' &&
     token !== 'null' &&
+    token !== 'yes' && // ⛔️ block this
     token.trim() !== '';
 
   return isValid ? <Outlet /> : <Navigate to="/unauthorized" replace />;
