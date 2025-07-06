@@ -1,47 +1,59 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import './CSS/Login.css'; // Make sure this points to your original CSS
 
 function Login() {
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  const [error, setError] = useState('');
 
   const handleLogin = async () => {
+    if (!username || !password) {
+      setError("Please enter both username and password");
+      return;
+    }
+
     try {
       const res = await axios.post("https://rp2backend.vercel.app/login", {
         username,
         password,
       });
 
-      // OPTIONAL: If your backend returns a message and token
-      alert(res.data.message || "Login successful");
-
-      // Save token (you can replace "yes" with res.data.token if backend sends it)
+      // Optionally use res.data.token here if backend sends a real token
       localStorage.setItem("token", "yes");
 
-      navigate("/Newhomepage");
+      alert("Login successful!");
+      navigate('/Newhomepage');
     } catch (err) {
-      alert(err.response?.data?.message || "Login failed");
+      setError(err.response?.data?.message || "Login failed");
     }
   };
 
   return (
-    <div className="login-container">
-      <h2>Welcome back</h2>
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      /><br />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      /><br />
-      <button onClick={handleLogin}>Login</button>
+    <div className="login-body">
+      <h1 className="login-title">WELCOME TO THE LOGIN PAGE</h1>
+      <p className="login-subtext">Welcome back</p>
+
+      <div className="login-container">
+        <input
+          type="text"
+          placeholder="Please enter the username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          className="login-input"
+        />
+        <input
+          type="password"
+          placeholder="Please enter the password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="login-input"
+        />
+        <button onClick={handleLogin} className="login-button">Login</button>
+        {error && <p className="login-error">{error}</p>}
+      </div>
     </div>
   );
 }
