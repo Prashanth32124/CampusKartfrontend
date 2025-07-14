@@ -21,7 +21,6 @@ function Login() {
         password,
       });
 
-      // Save token (can be improved with real JWT in future)
       localStorage.setItem("token", "yes");
 
       alert(`Welcome back, ${username}!`);

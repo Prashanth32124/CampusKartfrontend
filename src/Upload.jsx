@@ -7,7 +7,7 @@ function Upload() {
       const totalcountofimages=images.length;
     
     useEffect(()=>{
-       fetch('https://loud-adaptive-tamarind.glitch.me/klimages')
+       fetch('https://rp2backend.vercel.app/klimages')
        .then(res=>res.json())
        .then(data=>setImages(data))
        .catch(err=>console.log(err));
