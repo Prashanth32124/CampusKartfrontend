@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios'; // ✅ Add this line
 
 function Feedback() {
   const [name, setName] = useState('');
@@ -9,7 +10,7 @@ function Feedback() {
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handleFeedbackChange = (e) => setFeedback(e.target.value);
 
-  const handleSubmit = async() => {
+  const handleSubmit = async () => {
     if (!name || !email || !feedback) {
       alert('Please fill in all fields.');
       return;
