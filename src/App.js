@@ -12,6 +12,7 @@ import Details from './Details';
 import Unauthorized from './Unauthorized';
 import ProtectedRoute from './Protectedroute';
 import AdminLogin from './AdminLogin';
+import AdminDashboard from './AdminDashboard';
 function App() {
   return (
     <Router>
@@ -25,6 +26,7 @@ function App() {
 
         {/* ✅ All Protected Routes (Only accessible after login) */}
         <Route element={<ProtectedRoute />}>
+        <Route path="/AdminDashboard" element={<AdminDashboard/>}/>
           <Route path="/Newhomepage" element={<Newhomepage />} />
           <Route path="/Cyber" element={<Cyber />} />
           <Route path="/Klu/Collegeinfo" element={<Collegeinfo />} />
