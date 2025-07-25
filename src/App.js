@@ -11,7 +11,7 @@ import Courses from './Klu/Courses';
 import Details from './Details';
 import Unauthorized from './Unauthorized';
 import ProtectedRoute from './Protectedroute';
-
+import AdminLogin from './AdminLogin';
 function App() {
   return (
     <Router>
@@ -21,6 +21,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
+        <Route path="/AdminLogin" element={<AdminLogin/>}/>
 
         {/* ✅ All Protected Routes (Only accessible after login) */}
         <Route element={<ProtectedRoute />}>

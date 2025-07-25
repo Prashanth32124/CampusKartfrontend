@@ -8,7 +8,9 @@ function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-
+  const handleal=() => {
+      navigate('/AdminLogin')
+    }
   const handleLogin = async () => {
     if (!username || !password) {
       setError("Please enter both username and password");
@@ -28,6 +30,7 @@ function Login() {
     } catch (err) {
       setError(err.response?.data || "Login failed. Please try again.");
     }
+
   };
 
   return (
@@ -56,6 +59,7 @@ function Login() {
 
         <div id="container21240">
           <button id="bt11" onClick={handleLogin}>Login</button>
+          <button onClick={handleal}>Admin login</button>
         </div>
 
         {error && (
