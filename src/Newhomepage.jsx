@@ -31,6 +31,9 @@ function Newhomepage() {
   const handleImageClick=()=>{
     navigate('/Upload');
   }
+  const handlefeedback=()=>{
+   navigate('/Feedback');
+  }
   return (
     <div>
       <input id="search"
@@ -42,6 +45,7 @@ function Newhomepage() {
          }
        }}
       />
+      <button onClick={handlefeedback}>Feedback</button>
       <button id="search_button" onClick={handlesearch}>Search</button>
       <button onClick={handlelogout}>Logout</button>
 
