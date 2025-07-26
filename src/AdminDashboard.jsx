@@ -102,7 +102,7 @@ function AdminDashboard() {
         <input
         type="text"
         value={username}
-        onChnage={handleusername}
+        onChange={handleusername}
         />
         <label>Password</label>
         <input
