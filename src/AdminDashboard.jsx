@@ -6,8 +6,8 @@ function AdminDashboard() {
   const [imagedesc, setImagedesc] = useState('');
   const [imageType, setImageType] = useState('');
   const [message, setMessage] = useState('');
-  const [username,setUsername]=useState('');
-  const [password,setPassword]=useState('');
+  const [username,setUsername]=useState();
+  const [password,setPassword]=useState();
   const handleusername=(e)=>{
     setUsername(e.target.value);
   }
