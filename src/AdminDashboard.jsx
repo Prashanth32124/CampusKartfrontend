@@ -6,6 +6,14 @@ function AdminDashboard() {
   const [imagedesc, setImagedesc] = useState('');
   const [imageType, setImageType] = useState('');
   const [message, setMessage] = useState('');
+  const [username,setUsername]=useState('');
+  const [password,setPassword]=useState('');
+  const handleusername=(e)=>{
+    setUsername(e.target.value);
+  }
+  const handlepassword=(e)=>{
+    setPassword(e.target.value);
+  }
   const handleimgdata = (e) => {
     setImagedata(e.target.value);
   };
@@ -34,7 +42,26 @@ function AdminDashboard() {
     alert("Something went wrong!");
   }
   };
-
+  const handleab=async()=>{
+    if(username==" " || password==" "){
+      alert("please fill the details admin");
+    }
+    try{
+      const res=await axios.post("https://rp2backend.vercel.app/Adminadd",{
+        username,
+        password
+      })
+      if(res.data.success){
+        alert("new admin added successfully");
+      }
+      else{
+        alert("error ocuured");
+      }
+    }
+    catch{
+      alert("error occured");
+    }
+  }
   return (
     <div>
       <h2>Upload Image (Base64)</h2>
@@ -69,6 +96,22 @@ function AdminDashboard() {
 
         <button type="submit">Upload</button>
       </form>
+      <div>
+        <h1>Add a admin manually in the db</h1>
+        <label>username</label>
+        <input
+        type="text"
+        value={username}
+        onChnage={handleusername}
+        />
+        <label>Password</label>
+        <input
+        type="password"
+        value={password}
+        onChange={handlepassword}
+        />
+       <button onClick={handleab}>Add admin</button>
+      </div>
     </div>
   );
 }
