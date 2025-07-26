@@ -8,6 +8,10 @@ function AdminDashboard() {
   const [message, setMessage] = useState('');
   const [username,setUsername]=useState();
   const [password,setPassword]=useState();
+  const [clgname,setClgname]=useState();
+  const handleclgname=(e)=>{
+    setClgname(e.target.value);
+  }
   const handleusername=(e)=>{
     setUsername(e.target.value);
   }
@@ -29,13 +33,13 @@ function AdminDashboard() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const payload = {
-      imageData: imagedata,
-      imageDescription: imagedesc,
-      imageType: imageType,
-    };
 
-    const res = await axios.post('https://rp2backend.vercel.app/AdminDashboard', payload);
+    const res = await axios.post('https://rp2backend.vercel.app/AdminDashboard', 
+      imagedata,
+      imagedesc,
+      imageType,
+      clgname
+    );
     if (res.data?.message) {
     alert(res.data.message); 
   } else {
@@ -93,6 +97,11 @@ function AdminDashboard() {
           placeholder="e.g., college, logo"
           required
         /><br /><br />
+        <label>Collection name</label>
+        <input
+        type="text"
+        value={clgname}
+        onChange={handleclgname}/>
 
         <button type="submit">Upload</button>
       </form>
