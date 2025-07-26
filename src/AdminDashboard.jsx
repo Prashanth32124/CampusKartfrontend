@@ -30,10 +30,7 @@ function AdminDashboard() {
     setImageType(e.target.value);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-
+  const handleSubmit = async () => {
     const res = await axios.post('https://rp2backend.vercel.app/AdminDashboard', 
       imagedata,
       imagedesc,
