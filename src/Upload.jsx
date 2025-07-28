@@ -3,7 +3,7 @@ import './CSS/Upload.css';
 function Upload() {
     const [images,setImages]=useState([]);
     const[index,setIndex]=useState(0);
-    
+    const [loading, setLoading] = useState(true);
       const totalcountofimages=images.length;
     
     useEffect(()=>{
@@ -51,13 +51,21 @@ function Upload() {
       From well-maintained basketball courts to multi-purpose fields, our facilities cater to a wide range of sports and recreational activities, promoting teamwork, discipline, and a healthy lifestyle.
       Whether it’s cricket, volleyball, or athletics, our campus offers the perfect environment for
        students to compete, train, and unwind.</p>
-    <div id="gettedimagescont">
-      <p id="count">{totalcountofimages}photos</p>
-      <button id="left" onClick={left}>Left</button>
-      <img src={`data:${images[index].imageType};base64,${images[index].imageData}`}/>
-      <p>{images[index].imageDes}</p>
-      <button id="right" onClick={right}>Right</button>
-    </div>
+   <div id="gettedimagescont">
+  <p id="count">{totalcountofimages} photos</p>
+  <button id="left" onClick={left}>Left</button>
+  {loading && <p>Loading image...</p>}
+  <img
+    src={`data:${images[index].imageType};base64,${images[index].imageData}`}
+    onLoad={() => setLoading(false)}
+    style={{ display: loading ? 'none' : 'block', maxWidth: '100%' }}
+    alt="Campus view"
+  />
+
+  <p>{images[index].imageDes}</p>
+  <button id="right" onClick={right}>Right</button>
+</div>
+
   </div>
   )
 }
