@@ -16,11 +16,12 @@ function AdminDashboard() {
     }
 
     const payload = {
-      imagedata,
-      imagedesc,
-      imageType,
-      clgname
-    };
+  imageData: imagedata,
+  imageDes: imagedesc,
+  imageType: imageType,
+  clgname: clgname
+};
+
 
     try {
       const res = await axios.post('https://rp2backend.vercel.app/AdminDashboard', payload);
