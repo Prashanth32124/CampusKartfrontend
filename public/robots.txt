@@ -1,3 +1,3 @@
-# https://www.robotstxt.org/robotstxt.html
-User-agent: *
-Disallow:
+<title>Campus Kart - Explore Colleges and Exams</title>
+<meta name="description" content="Campus Kart helps students explore top B.Tech colleges, entrance exams, and tools to plan their academic journey.">
+<meta name="robots" content="index, follow" />
