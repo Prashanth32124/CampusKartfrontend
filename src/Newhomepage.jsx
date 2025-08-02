@@ -36,7 +36,10 @@ function Newhomepage() {
   }
   return (
     <div>
-      <input id="search"
+      <nav class="navbar">
+
+  <div class="nav-buttons">
+   <input id="search"
       type="text"
       placeholder="Search"
       onKeyDown={(e) => {
@@ -45,9 +48,12 @@ function Newhomepage() {
          }
        }}
       />
-      <button onClick={handlefeedback}>Feedback</button>
-      <button id="search_button" onClick={handlesearch}>Search</button>
-      <button onClick={handlelogout}>Logout</button>
+   <button id="search_button" onClick={handlesearch}>Search</button>
+    <button onClick={handlefeedback}>Feedback</button>
+    <button onClick={handlelogout}>Logout</button>
+  </div>
+</nav>
+
 
 
 

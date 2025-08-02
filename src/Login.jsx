@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './CSS/Login.css'; // Your CSS file path
+import './CSS/Login.css';
 
 function Login() {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const handleal=() => {
-      navigate('/AdminLogin')
-    }
+
+  const handleal = () => {
+    navigate('/AdminLogin');
+  };
+
   const handleLogin = async () => {
     if (!username || !password) {
       setError("Please enter both username and password");
@@ -24,13 +26,11 @@ function Login() {
       });
 
       localStorage.setItem("token", "yes");
-
       alert(`Welcome back, ${username}!`);
       navigate('/Newhomepage');
     } catch (err) {
       setError(err.response?.data || "Login failed. Please try again.");
     }
-
   };
 
   return (
@@ -67,6 +67,7 @@ function Login() {
             {error}
           </p>
         )}
+
       </div>
     </>
   );
