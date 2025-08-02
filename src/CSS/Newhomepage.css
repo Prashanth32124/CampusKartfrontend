@@ -71,7 +71,7 @@ body {
   margin-bottom: 30px;
   padding: 12px 20px;
   border-radius: 10px;
-  background-image: url('/images/homehead.png');
+  background-image: url('./homehead.png');
   background-size: cover;
   background-position: center;
   background-clip: text;
