@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import './CSS/Singup.css';
 import backimg from './images/s3.png';
-import { useEffect } from 'react';
+
 function Signup() {
-  const [email,Setemail]=useState("");
+  const [email, Setemail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate(); 
-  
 
   useEffect(() => {
     document.body.style.overflow = 'hidden'; 
@@ -18,32 +17,33 @@ function Signup() {
     };
   }, []);
 
-
-  const handlesignin=()=>{
+  const handlesignin = () => {
     navigate("/login");
-  }
+  };
+
   const handleSignup = async () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  
+
     if (!username || !password || !email) {
-  alert("Please fill in all the fields");
-  return;
-}
-  
+      alert("Please fill in all the fields");
+      return;
+    }
+
     if (!emailRegex.test(email)) {
       alert("Please enter a valid email address");
       return;
     }
-  
+
     try {
       const res = await axios.post("https://rp2backend.vercel.app/signup", {
         username,
         password,
         email, 
       });
+
       if (res.data.success) {
         alert(res.data.message || "Signup successful");
-        Setemail("");
+        Setemail(""); // ✅ using Setemail consistently
         setUsername("");
         setPassword("");
         navigate("/login");
@@ -56,19 +56,20 @@ function Signup() {
       alert(errorMsg);
     }
   };
-  
+
   return (
-    
     <div id="Maincontainer">
       <div id="container32124">
         <p id="newh">Welcome to the <b>CampusKart</b> Roy's</p>
+
         <label className='label2'>Email</label>
         <input className='input2'
           type="text"
           placeholder="Please enter the email"
           value={email}
-          onChange={(e) => Setemail(e.target.value)}
+          onChange={(e) => Setemail(e.target.value)} // ✅ Setemail here too
         />
+
         <label className='label'>Username</label>
         <input className='input'
           type="text"
@@ -76,6 +77,7 @@ function Signup() {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
+
         <label className='label1'>Password</label>
         <input
           className='input'
@@ -84,19 +86,18 @@ function Signup() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+
         <button className="but1" onClick={handleSignup}>Signup</button>
         <p id="p">already have an account? click signin</p>
         <button className="but1" onClick={handlesignin}>Signin</button>
       </div>
-  
-   
+
       <div id="container2246">
-        <img src={backimg}/>
+        <img src={backimg} alt="Campus background" />
         <p id="slogan-text">Your future starts here — let’s make it amazing together.</p>
       </div>
     </div>
   );
-  
 }
 
 export default Signup;
