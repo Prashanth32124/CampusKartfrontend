@@ -57,7 +57,7 @@ Suggest 3 best colleges in India that match these preferences and give a short e
   return (
   <div className="predict-page">
     <div className="predict-card">
-      <label id="c12">For Class 12th / Diploma Only</label><br />
+      <label id="c12">For Class 12th / Diploma Passed Out Only</label><br />
 
       <label className="l">CGPA/PERCENTAGE</label>
       <input
