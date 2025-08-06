@@ -1,91 +1,83 @@
-
-#Maincontainer{
-    display:grid;
+#Maincontainer {
+    display: grid;
     grid-template-columns: 1fr 1fr;
-    overflow: hidden;
+    min-height: 100vh;
 }
-#container32124{
-    width:100%;
-    height:100vh;
+
+#container32124 {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
 }
-#container2246{
-    margin-top:3%;
-    width:100%;
-    height:95vh;
-    max-height:100vh;
-    overflow: hidden;
+
+#container2246 {
+    margin-top: 3%;
+    width: 100%;
+    height: auto;
+    max-height: 100vh;
     position: relative;
     box-sizing: border-box;
     border-radius: 20px 300px;
-}  
+    overflow: hidden; /* keep the image clipped but not its container */
+}
+
 #container2246 img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    max-height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease; 
+    display: block;
+    transition: transform 0.5s ease;
 }
 
 #container2246 img:hover {
     transform: scale(1.05);
 }
 
-.label{
+/* Labels & Inputs */
+.label, .label1, .label2 {
     font-size: larger;
-    justify-content: center;
-    align-items: center;
-    margin-left:43%;
-    margin-bottom:2%;
-}
-.label2{
-    margin-top: 10%;
-    margin-left: 44%;
-    font-size: larger;
+    margin-left: 43%;
     margin-bottom: 2%;
 }
-.input:focus{
+
+.label2 {
+    margin-top: 10%;
+    margin-left: 44%;
+}
+
+.input, .input2 {
+    padding: 10px;
+    border-radius: 10px;
+    width: 60%;
+    margin-left: 20%;
+    margin-bottom: 2%;
+}
+
+.input:focus {
     border-color: aqua;
-    outline: none; /* optional: removes the default outline */
+    outline: none;
     box-shadow: 0 0 5px aqua;
 }
 
-.label1{
-    font-size: larger;
-    justify-content: center;
-    align-items: center;
-    margin-left:43%;
-    margin-bottom:2%;
+.but1 {
+    width: 50%;
+    padding: 10px;
+    margin-left: 25%;
+    border-radius: 10px;
 }
-.input{
-     padding:10px;
-     border-radius:10px;
-     width:60%;
-     margin-left:20%;
-     margin-bottom:2%;
+
+#p {
+    margin-left: 25%;
 }
-.input2{
-    padding:10px;
-    border-radius:10px;
-    width:60%;
-    margin-left:20%;
+
+#newh {
+    margin-top: 20%;
+    font-size: xx-large;
+    margin-left: 10%;
 }
-.but1{
-    width:50%;
-    padding:10px;
-    margin-left:25%;
-    border-radius:10px;
-}
-#p{
-    margin-left:25%;
-}
-#newh{
-    margin-top:20%;
-    font-size:xx-large;
-    margin-left:10%;
-}
-/* 🌐 For devices up to 768px (tablets and large phones) */
+
+/* Tablets */
 @media (max-width: 768px) {
   #Maincontainer {
     display: flex;
@@ -93,8 +85,13 @@
   }
 
   #container2246 {
-    height: 50vh;
+    height: auto;
     border-radius: 20px;
+  }
+
+  #container2246 img {
+    height: auto;
+    max-height: 60vh; /* make sure it’s visible */
   }
 
   .label, .label1, .label2 {
@@ -124,11 +121,16 @@
   }
 }
 
-/* 📱 For small phones up to 480px (most mobiles) */
+/* Phones */
 @media (max-width: 480px) {
   #container2246 {
-    height: 40vh;
+    height: auto;
     border-radius: 10px;
+  }
+
+  #container2246 img {
+    height: auto;
+    max-height: 50vh;
   }
 
   .label, .label1, .label2 {
