@@ -43,7 +43,7 @@ function Signup() {
       });
       if (res.data.success) {
         alert(res.data.message || "Signup successful");
-        setEmail("");
+        Setemail("");
         setUsername("");
         setPassword("");
         navigate("/login");
