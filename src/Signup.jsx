@@ -25,10 +25,10 @@ function Signup() {
   const handleSignup = async () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   
-    if (username === "" && password === "") {
-      alert("Please fill the username and password");
-      return;
-    }
+    if (!username || !password || !email) {
+  alert("Please fill in all the fields");
+  return;
+}
   
     if (!emailRegex.test(email)) {
       alert("Please enter a valid email address");
@@ -41,11 +41,19 @@ function Signup() {
         password,
         email, 
       });
-  
-      alert(res.data.message);
-      navigate("/login");
-    } catch (err) {
-      alert(err.response?.data?.message || "Signup failed");
+       if (res.data.success) {
+       alert("Signup successful");
+        Setemail("");
+        setUsername("");
+        setPassword("");
+        navigate("/login");
+       }
+        else {
+        alert('Some error occurred.');
+      }
+    }  catch (err) {
+      console.error(err);
+      alert('Server error. Please try again later.');
     }
   };
   
