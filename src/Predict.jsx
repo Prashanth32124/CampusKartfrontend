@@ -55,12 +55,13 @@ Suggest 3 best colleges in India that match these preferences and give a short e
   navigate('/Newhomepage');
   }
   return (
-    <div className="predict-page">
+  <div className="predict-page">
+    <div className="predict-card">
       <label id="c12">For Class 12th / Diploma Only</label><br />
-      
-      <label class="l">CGPA/PERCENTAGE</label>
+
+      <label className="l">CGPA/PERCENTAGE</label>
       <input
-        class="i"
+        className="i"
         type="number"
         step="any"
         onChange={(e) => setCgpa(e.target.value)}
@@ -68,9 +69,9 @@ Suggest 3 best colleges in India that match these preferences and give a short e
         placeholder="Enter CGPA of diploma or inter"
       />
 
-      <label class="l">Entrance Exam Score</label>
+      <label className="l">Entrance Exam Score</label>
       <input
-      class="i"
+        className="i"
         type="number"
         step="any"
         onChange={(e) => setScore(e.target.value)}
@@ -78,27 +79,27 @@ Suggest 3 best colleges in India that match these preferences and give a short e
         placeholder="Enter entrance exam score"
       />
 
-      <label class="l">Interested Branch</label>
+      <label className="l">Interested Branch</label>
       <input
-      class="i"
+        className="i"
         type="text"
         placeholder="Enter interested branch"
         onChange={(e) => setBranch(e.target.value)}
         value={branch}
       />
 
-      <label class="l">Budget (in Lakhs ₹)</label>
+      <label className="l">Budget (in Lakhs ₹)</label>
       <input
-      class="i"
+        className="i"
         type="number"
         placeholder="Enter your budget in lakhs"
         onChange={(e) => setBudget(e.target.value)}
         value={budget}
       />
 
-      <label class="l">Location Preference</label>
+      <label className="l">Location Preference</label>
       <input
-      class="i"
+        className="i"
         type="text"
         list="colleges"
         onChange={(e) => setLocation(e.target.value)}
@@ -119,11 +120,11 @@ Suggest 3 best colleges in India that match these preferences and give a short e
         readOnly
       ></textarea>
 
-      <br />
-      <button id="sb" onClick={handleSubmit}>Submit</button><br/>
+      <button id="sb" onClick={handleSubmit}>Submit</button>
       <button id="mc" onClick={handlemovepage}>Move to College Pages</button>
     </div>
-  );
+  </div>
+);
 }
 
 export default Predict;
