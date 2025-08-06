@@ -1,0 +1,53 @@
+.predict-page {
+  background-image: url('../images/bofp.png');
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  min-height: 100vh;
+  font-family: sans-serif;
+  
+}
+
+#c12{
+    margin-left:40%;
+    width:100%;
+    padding:10px;
+    color:white;
+}
+#texta{
+    width:100%;
+    height:50vh;
+     background-color: rgba(242, 237, 237, 0);
+     color:white;
+}
+#sb{
+    margin-left:48%;
+    padding:10px;
+    margin-bottom:10px;
+    background-color: rgba(242, 237, 237, 0);
+    color:white;
+    padding:10px;
+    font-size: x-large;
+    border-radius: 10px;
+    font-weight: bold;
+}
+#mc{
+    margin-left:42%;
+     padding:10px;
+    margin-bottom:10px;
+    background-color: rgba(242, 237, 237, 0);
+    color:white;
+    padding:10px;
+    font-size: x-large;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.l{
+    color:rgb(243, 243, 243);
+}
+.i{
+     background-color: rgba(226, 224, 224, 0);
+}

@@ -6,7 +6,6 @@ function Upload() {
   const [index, setIndex] = useState(0);
   const totalcountofimages = images.length;
 
-  // Fetch images once on mount
   useEffect(() => {
     fetch('https://rp2backend.vercel.app/klimages')
       .then(res => res.json())
@@ -14,12 +13,12 @@ function Upload() {
       .catch(err => console.log(err));
   }, []);
 
-  // Show loading while data is being fetched
+
   if (images.length === 0) {
     return <p>Loading data, please wait...</p>;
   }
 
-  // Navigate left
+
   const left = () => {
     if (index <= 0) {
       setIndex(images.length - 1);
@@ -28,7 +27,7 @@ function Upload() {
     }
   };
 
-  // Navigate right
+
   const right = () => {
     if (index >= images.length - 1) {
       setIndex(0);
@@ -41,10 +40,11 @@ function Upload() {
     <div>
       <nav>
         <ul>
-          <li><a href="Klinfo">Click here [to know more info]</a></li>
-          <li><a href="details">What things have to take for admission</a></li>
-          <li><a href="upload">Upload Page</a></li>
-          <li><a href="Newhomepage">Back to colleges page</a></li>
+<li><a href="Klinfo">College Information & Overview</a></li>
+<li><a href="details">Admission Requirements & Checklist</a></li>
+<li><a href="upload">Document Upload Portal</a></li>
+<li><a href="Newhomepage">← Back to College Listings</a></li>
+
         </ul>
       </nav>
 

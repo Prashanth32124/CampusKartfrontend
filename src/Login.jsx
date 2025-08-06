@@ -27,7 +27,7 @@ function Login() {
 
       localStorage.setItem("token", "yes");
       alert(`Welcome back, ${username}!`);
-      navigate('/Newhomepage');
+      navigate('/Predict');
     } catch (err) {
       setError(err.response?.data || "Login failed. Please try again.");
     }

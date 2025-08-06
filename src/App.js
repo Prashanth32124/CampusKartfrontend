@@ -14,19 +14,19 @@ import ProtectedRoute from './Protectedroute';
 import AdminLogin from './AdminLogin';
 import AdminDashboard from './AdminDashboard';
 import Feedback from './Feedback';
+import Predict from './Predict';
 function App() {
   return (
     <Router>
       <Routes>
-        {/* ✅ Public Routes */}
          <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
         <Route path="/AdminLogin" element={<AdminLogin/>}/>
 
-        {/* ✅ All Protected Routes (Only accessible after login) */}
         <Route element={<ProtectedRoute />}>
+        <Route path="/Predict" element={<Predict/>}/>
         <Route path="/Feedback" element={<Feedback/>}/>
         <Route path="/AdminDashboard" element={<AdminDashboard/>}/>
           <Route path="/Newhomepage" element={<Newhomepage />} />
