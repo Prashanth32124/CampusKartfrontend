@@ -1,53 +1,87 @@
+/* Predict Page Container */
 .predict-page {
-  background-image: url('../images/bofp.png');
-  background-size: cover; 
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  margin: 0;
-  padding: 0;
-  overflow-y: auto;
   min-height: 100vh;
-  font-family: sans-serif;
-  
+  margin: 0;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* space between elements */
 }
 
-#c12{
-    margin-left:40%;
-    width:100%;
-    padding:10px;
-    color:white;
+/* Page Title */
+#c12 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
 }
-#texta{
-    width:100%;
-    height:50vh;
-     background-color: rgba(242, 237, 237, 0);
-     color:white;
+
+/* Text Area */
+#texta {
+  width: 100%;
+  max-width: 800px;
+  height: 50vh;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1rem;
+  resize: none;
+  outline: none;
+  transition: border-color 0.3s ease;
 }
-#sb{
-    margin-left:48%;
-    padding:10px;
-    margin-bottom:10px;
-    background-color: rgba(242, 237, 237, 0);
-    color:white;
-    padding:10px;
-    font-size: x-large;
-    border-radius: 10px;
-    font-weight: bold;
+
+#texta:focus {
+  border-color: rgba(255, 255, 255, 0.7);
 }
-#mc{
-    margin-left:42%;
-     padding:10px;
-    margin-bottom:10px;
-    background-color: rgba(242, 237, 237, 0);
-    color:white;
-    padding:10px;
-    font-size: x-large;
-    border-radius: 10px;
-    font-weight: bold;
+
+/* Buttons */
+#sb,
+#mc {
+  padding: 12px 24px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
-.l{
-    color:rgb(243, 243, 243);
+
+#sb:hover,
+#mc:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
 }
-.i{
-     background-color: rgba(226, 224, 224, 0);
+
+/* Labels */
+.l {
+  color: black; /* readable on light or transparent backgrounds */
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Inputs */
+.i {
+  width: 100%;
+  max-width: 400px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: black;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 5px;
+  padding: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.i:focus {
+  border-color: rgba(255, 255, 255, 0.7);
 }

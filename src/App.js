@@ -15,11 +15,13 @@ import AdminLogin from './AdminLogin';
 import AdminDashboard from './AdminDashboard';
 import Feedback from './Feedback';
 import Predict from './Predict';
+import MainHome from './MainHome';
 function App() {
   return (
     <Router>
       <Routes>
-         <Route path="/" element={<Home />} />
+         <Route path="/Home" element={<Home />} />
+         <Route path="/" element={<MainHome />}/>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/unauthorized" element={<Unauthorized />} />

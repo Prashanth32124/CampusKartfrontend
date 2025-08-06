@@ -1,0 +1,46 @@
+.main-home {
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  font-family: sans-serif;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  background-color: #222;
+  padding: 10px;
+  margin: 0;
+}
+
+.main-nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.main-header {
+  padding: 30px;
+  text-align: center;
+}
+
+.about-section, .features-section {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.about-section h2, .features-section h2 {
+  margin-bottom: 10px;
+}
+
+.features-section ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.main-footer {
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+  background-color: #eee;
+}
