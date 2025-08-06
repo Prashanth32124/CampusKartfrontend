@@ -41,19 +41,19 @@ function Signup() {
         password,
         email, 
       });
-       if (res.data.success) {
-       alert("Signup successful");
-        Setemail("");
+      if (res.data.success) {
+        alert(res.data.message || "Signup successful");
+        setEmail("");
         setUsername("");
         setPassword("");
         navigate("/login");
-       }
-        else {
-        alert('Some error occurred.');
+      } else {
+        alert(res.data.message || "Some error occurred.");
       }
-    }  catch (err) {
+    } catch (err) {
       console.error(err);
-      alert('Server error. Please try again later.');
+      const errorMsg = err.response?.data?.message || "Server error. Please try again later.";
+      alert(errorMsg);
     }
   };
   
