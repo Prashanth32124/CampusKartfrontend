@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import './CSS/AdminDashboard.css';
 function AdminDashboard() {
   const [imagedata, setImagedata] = useState('');
   const [imagedesc, setImagedesc] = useState('');
@@ -59,7 +59,7 @@ function AdminDashboard() {
   };
 
   return (
-    <div>
+    <div className="admin-dashboard">
       <h2>Upload Image (Base64)</h2>
 
       <label>Image Data (Base64 URL only)</label><br />

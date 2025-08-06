@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // ✅ Add this line
-
+import axios from 'axios';
+import './CSS/Feedback.css';
 function Feedback() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -36,8 +36,8 @@ function Feedback() {
     }
   };
 
-  return (
-    <div>
+   return (
+    <div className="feedback-container">
       <h2>Feedback</h2>
 
       <div>

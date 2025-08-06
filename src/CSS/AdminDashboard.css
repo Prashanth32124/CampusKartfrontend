@@ -1,0 +1,78 @@
+.admin-dashboard {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #000;
+}
+
+/* Headings */
+.admin-dashboard h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  border-bottom: 2px solid #000;
+  padding-bottom: 10px;
+}
+
+/* Labels */
+.admin-dashboard label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+/* Input Fields & Textarea */
+.admin-dashboard input,
+.admin-dashboard textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #000;
+  background-color: #fff;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-dashboard input:focus,
+.admin-dashboard textarea:focus {
+  border-color: #000;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.admin-dashboard textarea {
+  resize: none;
+}
+
+/* Buttons */
+.admin-dashboard button {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #000;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.admin-dashboard button:hover {
+  background: #333;
+  transform: scale(1.03);
+}
+
+/* Separate section for Add Admin */
+.add-admin-section {
+  margin-top: 50px;
+  padding-top: 25px;
+  border-top: 2px solid #ddd;
+}

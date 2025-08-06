@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './CSS/AdminLogin.css';
 import { useNavigate } from 'react-router-dom';
 function AdminLogin() {
   const [username, setUsername] = useState('');
@@ -32,8 +33,10 @@ function AdminLogin() {
     }
   };
 
-  return (
-    <div>
+ return (
+    <div className="admin-login-container">
+      <h2>Admin Login</h2>
+
       <label>Username</label>
       <input type="text" value={username} onChange={handleUsername} />
 
