@@ -1,6 +1,7 @@
 import React from 'react';
 import './CSS/MainHome.css';
 function MainHome() {
+  localStorage.clear();
   return (
     <div className="main-home">
       <nav className="main-nav">
