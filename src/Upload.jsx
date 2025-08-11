@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './CSS/Upload.css';
+import { set, get } from 'idb-keyval';
 
 function Upload() {
   const [images, setImages] = useState([]);
@@ -7,9 +8,16 @@ function Upload() {
   const totalcountofimages = images.length;
 
   useEffect(() => {
+    get('klu_images').then(cachedImages => {
+    if (cachedImages) setImages(cachedImages);
+  });
     fetch('https://rp2backend.vercel.app/klimages')
       .then(res => res.json())
-      .then(data => setImages(data))
+      .then(data => {
+        set('klu_images', data);
+        setImages(data)
+      })
+
       .catch(err => console.log(err));
   }, []);
 

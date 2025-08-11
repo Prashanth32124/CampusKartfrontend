@@ -16,6 +16,7 @@ import AdminDashboard from './AdminDashboard';
 import Feedback from './Feedback';
 import Predict from './Predict';
 import MainHome from './MainHome';
+import Vitupload from './vit/Vitupload';
 function App() {
   return (
     <Router>
@@ -26,7 +27,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
         <Route path="/AdminLogin" element={<AdminLogin/>}/>
-
+         <Route path="/Vitupload" element={<Vitupload/>}/>
         <Route element={<ProtectedRoute />}>
         <Route path="/Predict" element={<Predict/>}/>
         <Route path="/Feedback" element={<Feedback/>}/>
