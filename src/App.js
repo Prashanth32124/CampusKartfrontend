@@ -28,6 +28,7 @@ function App() {
         <Route path="/unauthorized" element={<Unauthorized />} />
         <Route path="/AdminLogin" element={<AdminLogin/>}/>
          <Route path="/Vitupload" element={<Vitupload/>}/>
+
         <Route element={<ProtectedRoute />}>
         <Route path="/Predict" element={<Predict/>}/>
         <Route path="/Feedback" element={<Feedback/>}/>
@@ -40,6 +41,7 @@ function App() {
           <Route path="/Klinfo" element={<Klinfo />} />
           <Route path="/details" element={<Details />} />
         </Route>
+        
       </Routes>
     </Router>
   );
