@@ -13,7 +13,7 @@ function Newhomepage() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    navigate("/signup");
+    navigate("/");
     alert("👤❌ You successfully logged out");
   };
 
