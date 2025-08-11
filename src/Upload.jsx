@@ -8,7 +8,8 @@ function Upload() {
   const totalcountofimages = images.length;
 
   useEffect(() => {
-    get('klu_images').then(cachedImages => {
+    get('klu_images')
+    .then(cachedImages => {
     if (cachedImages) setImages(cachedImages);
   });
     fetch('https://rp2backend.vercel.app/klimages')
