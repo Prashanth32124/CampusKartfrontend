@@ -65,7 +65,6 @@ function Klupielifescore() {
   } else if (ratings.length === 0) {
     return <p>No ratings found</p>;
   } else {
-    // We will build Cell components in a simple loop without map
     var cells = [];
     for (var i = 0; i < ratings.length; i++) {
       var colorIndex = i % COLORS.length;
@@ -76,7 +75,7 @@ function Klupielifescore() {
 
     return (
       <div>
-        <h2>KL U Life Score Ratings</h2>
+        <h2>KLU Life Score Ratings</h2>
         <PieChart width={400} height={400}>
           <Pie
             data={ratings}
