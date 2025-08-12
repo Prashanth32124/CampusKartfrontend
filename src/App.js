@@ -17,6 +17,8 @@ import Feedback from './Feedback';
 import Predict from './Predict';
 import MainHome from './MainHome';
 import Vitupload from './vit/Vitupload';
+import Klulifescore from './Klulifescore';
+import Klupielifescore from './Klupielifescore';
 function App() {
   return (
     <Router>
@@ -30,6 +32,8 @@ function App() {
          <Route path="/Vitupload" element={<Vitupload/>}/>
 
         <Route element={<ProtectedRoute />}>
+        <Route path="Klupielifescore" element={<Klupielifescore/>}/>
+        <Route path="/Klulifescore" element={<Klulifescore/>}/>
         <Route path="/Predict" element={<Predict/>}/>
         <Route path="/Feedback" element={<Feedback/>}/>
         <Route path="/AdminDashboard" element={<AdminDashboard/>}/>

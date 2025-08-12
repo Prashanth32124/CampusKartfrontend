@@ -52,6 +52,8 @@ function Upload() {
 <li><a href="Klinfo">College Information & Overview</a></li>
 <li><a href="details">Admission Requirements & Checklist</a></li>
 <li><a href="upload">Document Upload Portal</a></li>
+<li><a href="Klupielifescore"> KluLifeScore</a></li>
+<li><a href="Klulifescore"> Provide Feedback</a></li>
 <li><a href="Newhomepage">← Back to College Listings</a></li>
 
         </ul>
