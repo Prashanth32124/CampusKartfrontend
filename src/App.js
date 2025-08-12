@@ -30,10 +30,9 @@ function App() {
         <Route path="/unauthorized" element={<Unauthorized />} />
         <Route path="/AdminLogin" element={<AdminLogin/>}/>
          <Route path="/Vitupload" element={<Vitupload/>}/>
-
+          <Route path="/Klulifescore" element={<Klulifescore/>}/>
         <Route element={<ProtectedRoute />}>
         <Route path="Klupielifescore" element={<Klupielifescore/>}/>
-        <Route path="/Klulifescore" element={<Klulifescore/>}/>
         <Route path="/Predict" element={<Predict/>}/>
         <Route path="/Feedback" element={<Feedback/>}/>
         <Route path="/AdminDashboard" element={<AdminDashboard/>}/>
