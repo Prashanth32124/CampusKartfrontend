@@ -1,5 +1,6 @@
-/* Klulifescore.css */
-.klulifescore-container {
+/* Klulifescore.module.css */
+
+.container {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #f0f4ff, #e6ecff);
   margin: 0;
@@ -7,7 +8,7 @@
   min-height: 100vh;
 }
 
-.klulifescore-container > div {
+.card {
   max-width: 500px;
   margin: 40px auto;
   padding: 25px;
@@ -16,22 +17,21 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
-.klulifescore-container h2 {
+.title {
   text-align: center;
   color: #2a4d8f;
   margin-bottom: 20px;
 }
 
-.klulifescore-container label {
+.label {
   display: block;
   font-weight: 500;
   color: #444;
   margin-bottom: 8px;
 }
 
-.klulifescore-container input[type="text"],
-.klulifescore-container input[type="number"],
-.klulifescore-container textarea {
+.input,
+.textarea {
   width: 100%;
   padding: 10px 12px;
   font-size: 15px;
@@ -41,19 +41,18 @@
   transition: all 0.2s ease-in-out;
 }
 
-.klulifescore-container input[type="text"]:focus,
-.klulifescore-container input[type="number"]:focus,
-.klulifescore-container textarea:focus {
+.input:focus,
+.textarea:focus {
   border-color: #4a74f5;
   box-shadow: 0 0 5px rgba(74, 116, 245, 0.4);
 }
 
-.klulifescore-container textarea {
+.textarea {
   min-height: 80px;
   resize: vertical;
 }
 
-.klulifescore-container button {
+.button {
   width: 100%;
   padding: 12px;
   font-size: 16px;
@@ -66,16 +65,15 @@
   transition: all 0.2s ease-in-out;
 }
 
-.klulifescore-container button:hover {
+.button:hover {
   background: linear-gradient(135deg, #5d84ff, #3a5dbd);
   transform: translateY(-1px);
 }
 
-.klulifescore-container button:active {
+.button:active {
   transform: translateY(1px);
 }
 
-/* Rating fields spacing */
-.klulifescore-container > div > div {
+.ratingField {
   margin-bottom: 15px;
 }
