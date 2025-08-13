@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./CSS/Klulifescore.css";
 
 export default function Klulifescore() {
   const [ratings, setRatings] = useState({
@@ -12,30 +13,37 @@ export default function Klulifescore() {
     projects: "",
     trips: ""
   });
+  
+  const [experience, setExperience] = useState("");
+  const [name, setName] = useState("");
 
   function handleChange(e) {
     const { name, value } = e.target;
     const num = Number(value);
-
-    if (value === "") {
-      setRatings(prev => ({ ...prev, [name]: "" }));
-      return;
-    }
-
-    if (num >= 1 && num <= 5) {
-      setRatings(prev => ({ ...prev, [name]: num }));
+    if (value === "" || (num >= 0 && num <= 5)) {
+      setRatings(prev => ({
+        ...prev,
+        [name]: value === "" ? "" : num
+      }));
     }
   }
 
-  async function handlesubmit() {
+  async function handleSubmit() {
     try {
-      const res = await axios.post("https://rp2backend.vercel.app/klulifescore", {
-        ratings,
-      });
+      const res = await axios.post("https://rp2backend.vercel.app/klulifescore", { ratings });
       alert("Ratings submitted successfully!");
       console.log(res.data);
     } catch (error) {
       alert("Failed to submit ratings");
+      console.error(error);
+    }
+
+    try {
+      const res1 = await axios.post("https://rp2backend.vercel.app/review", { name, experience });
+      alert("Name & Experience submitted successfully!");
+      console.log(res1.data);
+    } catch (error) {
+      alert("Failed to submit name & experience");
       console.error(error);
     }
   }
@@ -44,27 +52,45 @@ export default function Klulifescore() {
     <div>
       <h2>KLU Life Score Ratings</h2>
 
-      {Object.keys(ratings).map((key) => (
+      <label>
+        Name:
+        <input
+          type="text"
+          placeholder="Please enter your name"
+          value={name}
+          onChange={e => setName(e.target.value)}
+        />
+      </label>
+      <br /><br />
+
+      <label>
+        Experience:
+        <textarea
+          placeholder="Give some experience or info about this college"
+          value={experience}
+          onChange={e => setExperience(e.target.value)}
+        />
+      </label>
+      <br /><br />
+
+      {Object.keys(ratings).map(key => (
         <div key={key}>
-          <input
-            type="number"
-            name={key}
-            placeholder={`${key.charAt(0).toUpperCase() + key.slice(1)} Rating 1 to 5`}
-            value={ratings[key]}
-            onChange={handleChange}
-            min={1}
-            max={5}
-          />
+          <label>
+            {key.charAt(0).toUpperCase() + key.slice(1)} Rating (0 to 5):
+            <input
+              type="number"
+              name={key}
+              value={ratings[key]}
+              onChange={handleChange}
+              min={0}
+              max={5}
+            />
+          </label>
           <br /><br />
         </div>
       ))}
 
-      <div>
-        <strong>Current Ratings:</strong>
-        <pre>{JSON.stringify(ratings, null, 2)}</pre>
-      </div>
-
-      <button onClick={handlesubmit}>Submit</button>
+      <button onClick={handleSubmit}>Submit</button>
     </div>
   );
 }

@@ -8,93 +8,76 @@ function Klupielifescore() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(function () {
+  useEffect(() => {
     fetch("https://rp2backend.vercel.app/klulifescore")
-      .then(function (res) {
+      .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch");
         }
         return res.json();
       })
-      .then(function (data) {
+      .then((data) => {
         if (data && data.length > 0) {
-          var aggregatedRatings = {};
+          const aggregatedRatings = {};
 
-          for (var i = 0; i < data.length; i++) {
-            var doc = data[i];
+          for (const doc of data) {
             if (doc.ratings) {
-              // For each key in ratings object
-              for (var key in doc.ratings) {
-                if (doc.ratings.hasOwnProperty(key)) {
-                  if (aggregatedRatings[key]) {
-                    aggregatedRatings[key] += doc.ratings[key];
-                  } else {
-                    aggregatedRatings[key] = doc.ratings[key];
-                  }
+              for (const key in doc.ratings) {
+                if (Object.hasOwnProperty.call(doc.ratings, key)) {
+                  // Ensure value is a number
+                  const value = Number(doc.ratings[key]) || 0;
+                  aggregatedRatings[key] =
+                    (aggregatedRatings[key] || 0) + value;
                 }
               }
             }
           }
 
-          var pieData = [];
-          for (var key in aggregatedRatings) {
-            if (aggregatedRatings.hasOwnProperty(key)) {
-              pieData.push({
-                category: key.charAt(0).toUpperCase() + key.slice(1),
-                score: aggregatedRatings[key],
-              });
-            }
-          }
+          const pieData = Object.keys(aggregatedRatings).map((key) => ({
+            category: key.charAt(0).toUpperCase() + key.slice(1),
+            score: aggregatedRatings[key],
+          }));
 
+          console.log("Pie Data:", pieData); // Debug check
           setRatings(pieData);
         } else {
           setRatings([]);
         }
         setLoading(false);
       })
-      .catch(function (err) {
+      .catch((err) => {
         setError(err.message);
         setLoading(false);
       });
   }, []);
 
-  if (loading) {
-    return <p>Loading ratings...</p>;
-  } else if (error) {
-    return <p>Error: {error}</p>;
-  } else if (ratings.length === 0) {
-    return <p>No ratings found</p>;
-  } else {
-    var cells = [];
-    for (var i = 0; i < ratings.length; i++) {
-      var colorIndex = i % COLORS.length;
-      cells.push(
-        <Cell key={"cell" + i} fill={COLORS[colorIndex]} />
-      );
-    }
+  if (loading) return <p>Loading ratings...</p>;
+  if (error) return <p>Error: {error}</p>;
+  if (ratings.length === 0) return <p>No ratings found</p>;
 
-    return (
-      <div>
-        <h2>KLU Life Score Ratings</h2>
-        <PieChart width={400} height={400}>
-          <Pie
-            data={ratings}
-            dataKey="score"
-            nameKey="category"
-            cx="50%"
-            cy="50%"
-            outerRadius={120}
-            fill="#8884d8"
-            label
-          >
-            {cells}
-          </Pie>
-          <Tooltip />
-          <Legend />
-        </PieChart>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <h2>KLU Life Score Ratings</h2>
+      <PieChart width={400} height={400}>
+        <Pie
+          data={ratings}
+          dataKey="score"
+          nameKey="category"
+          cx="50%"
+          cy="50%"
+          outerRadius={120}
+          fill="#8884d8"
+          label
+        >
+          {ratings.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+          ))}
+        </Pie>
+        <Tooltip />
+        <Legend />
+      </PieChart>
+    </div>
+  );
 }
 
 export default Klupielifescore;
