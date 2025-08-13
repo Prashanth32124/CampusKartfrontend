@@ -1,28 +1,35 @@
 /* Klulifescore.module.css */
 
-.container {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #f0f4ff, #e6ecff);
-  margin: 0;
-  padding: 0;
+/* Outer wrapper for this page only */
+.klulifescoreContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   min-height: 100vh;
+  background: linear-gradient(135deg, #f0f4ff, #e6ecff);
+  padding: 40px 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Main card */
 .card {
+  width: 100%;
   max-width: 500px;
-  margin: 40px auto;
-  padding: 25px;
   background: #ffffff;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  padding: 25px;
 }
 
+/* Title */
 .title {
   text-align: center;
   color: #2a4d8f;
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
+/* Labels */
 .label {
   display: block;
   font-weight: 500;
@@ -30,6 +37,7 @@
   margin-bottom: 8px;
 }
 
+/* Inputs & textarea */
 .input,
 .textarea {
   width: 100%;
@@ -39,6 +47,7 @@
   border: 1px solid #ccc;
   outline: none;
   transition: all 0.2s ease-in-out;
+  margin-bottom: 12px;
 }
 
 .input:focus,
@@ -52,6 +61,7 @@
   resize: vertical;
 }
 
+/* Button */
 .button {
   width: 100%;
   padding: 12px;
@@ -74,6 +84,7 @@
   transform: translateY(1px);
 }
 
+/* Rating field wrapper */
 .ratingField {
   margin-bottom: 15px;
 }
