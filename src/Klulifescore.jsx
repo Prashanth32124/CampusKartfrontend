@@ -49,7 +49,7 @@ export default function Klulifescore() {
   }
 
   return (
-    <div>
+    <div className="klulifescore-container">
       <h2>KLU Life Score Ratings</h2>
 
       <label>
