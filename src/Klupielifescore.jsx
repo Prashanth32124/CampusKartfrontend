@@ -88,97 +88,116 @@ function Klupielifescore() {
   if (error) return <p>Error: {error}</p>;
   if (ratings.length === 0) return <p>No ratings found</p>;
 
-  return (
-    <div style={{ display: "flex", gap: "40px", alignItems: "flex-start" }}>
-      {/* Pie Chart */}
-      <div>
-        <h2>KLU Life Score Ratings</h2>
-        <PieChart width={400} height={400}>
-          <Pie
-            data={ratings}
-            dataKey="score"
-            nameKey="category"
-            cx="50%"
-            cy="50%"
-            outerRadius={120}
-            fill="#8884d8"
-            label
-          >
-            {ratings.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-            ))}
-          </Pie>
-          <Tooltip />
-          <Legend />
-        </PieChart>
+return (
+  <div
+    style={{
+      display: "flex",
+      gap: "40px",
+      alignItems: "flex-start",
+      flexWrap: "wrap", // ✅ allows stacking on small screens
+    }}
+  >
+    {/* Pie Chart */}
+    <div style={{ flex: "1 1 400px", minWidth: "300px" }}>
+      <h2>KLU Life Score Ratings</h2>
+      <PieChart width={350} height={350}>
+        <Pie
+          data={ratings}
+          dataKey="score"
+          nameKey="category"
+          cx="50%"
+          cy="50%"
+          outerRadius={120}
+          fill="#8884d8"
+          label
+        >
+          {ratings.map((entry, index) => (
+            <Cell
+              key={`cell-${index}`}
+              fill={COLORS[index % COLORS.length]}
+            />
+          ))}
+        </Pie>
+        <Tooltip />
+        <Legend />
+      </PieChart>
 
-        {/* Overall Rating Summary */}
-        {summary && (
-          <div style={{ marginTop: "20px" }}>
-            <h3>Overall Rating (Out of 5)</h3>
-            <p style={{ fontSize: "28px", fontWeight: "bold" }}>
-              {summary.overall}
-            </p>
-            <p>Based on {summary.totalReviews} Verified Reviews</p>
+      {/* Overall Rating Summary */}
+      {summary && (
+        <div style={{ marginTop: "20px" }}>
+          <h3>Overall Rating (Out of 5)</h3>
+          <p style={{ fontSize: "28px", fontWeight: "bold" }}>
+            {summary.overall}
+          </p>
+          <p>Based on {summary.totalReviews} Verified Reviews</p>
 
-            {Object.entries(summary.starDist).map(([range, percent]) => (
-              <div key={range} style={{ margin: "5px 0" }}>
-                <span style={{ width: "60px", display: "inline-block" }}>
-                  {range} star
-                </span>
-                <div
-                  style={{
-                    display: "inline-block",
-                    width: "150px",
-                    background: "#eee",
-                    height: "8px",
-                    margin: "0 10px",
-                    borderRadius: "4px",
-                    overflow: "hidden",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: `${percent}%`,
-                      background: "#ff9900",
-                      height: "100%",
-                    }}
-                  ></div>
-                </div>
-                <span>{percent}%</span>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-
-      {/* Reviews Section */}
-      <div style={{ flex: 1 }}>
-        <h2>Student Reviews</h2>
-        {reviews.length > 0 ? (
-          <ul style={{ listStyle: "none", padding: 0 }}>
-            {reviews.map((rev, idx) => (
-              <li
-                key={idx}
+          {Object.entries(summary.starDist).map(([range, percent]) => (
+            <div key={range} style={{ margin: "5px 0" }}>
+              <span style={{ width: "60px", display: "inline-block" }}>
+                {range} star
+              </span>
+              <div
                 style={{
-                  background: "#f9f9f9",
-                  padding: "10px",
-                  marginBottom: "10px",
-                  borderRadius: "8px",
-                  boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+                  display: "inline-block",
+                  width: "150px",
+                  background: "#eee",
+                  height: "8px",
+                  margin: "0 10px",
+                  borderRadius: "4px",
+                  overflow: "hidden",
                 }}
               >
-                <strong>{rev.name}</strong>
-                <p style={{ margin: "5px 0" }}>{rev.experience}</p>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>No reviews available</p>
-        )}
-      </div>
+                <div
+                  style={{
+                    width: `${percent}%`,
+                    background: "#ff9900",
+                    height: "100%",
+                  }}
+                ></div>
+              </div>
+              <span>{percent}%</span>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
-  );
+
+    {/* Reviews Section */}
+    <div
+      style={{
+        flex: "1 1 400px",
+        minWidth: "300px",
+        maxWidth: "500px",
+      }}
+    >
+      <h2>Student Reviews</h2>
+      {reviews.length > 0 ? (
+        <ul style={{ listStyle: "none", padding: 0 }}>
+          {reviews.map((rev, idx) => (
+            <li
+              key={idx}
+              style={{
+                background: "#eef2ff", // ✅ better background
+                padding: "12px",
+                marginBottom: "12px",
+                borderRadius: "8px",
+                boxShadow: "0 2px 5px rgba(0,0,0,0.08)",
+                color: "#222", // ✅ better text contrast
+                wordBreak: "break-word", // ✅ prevents text overflow
+              }}
+            >
+              <strong style={{ color: "#2a4d8f" }}>{rev.name}</strong>
+              <p style={{ margin: "6px 0 0" }}>{rev.experience}</p>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>No reviews available</p>
+      )}
+    </div>
+  </div>
+);
+
 }
 
 export default Klupielifescore;
