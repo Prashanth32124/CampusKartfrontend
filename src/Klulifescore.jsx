@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./CSS/Klulifescore.css";
+import styles from "./CSS/Klulifescore.module.css";
 
 export default function Klulifescore() {
   const [ratings, setRatings] = useState({
@@ -30,53 +30,47 @@ export default function Klulifescore() {
 
   async function handleSubmit() {
     try {
-      const res = await axios.post("https://rp2backend.vercel.app/klulifescore", { ratings });
+      await axios.post("https://rp2backend.vercel.app/klulifescore", { ratings });
       alert("Ratings submitted successfully!");
-      console.log(res.data);
-    } catch (error) {
+    } catch {
       alert("Failed to submit ratings");
-      console.error(error);
     }
 
     try {
-      const res1 = await axios.post("https://rp2backend.vercel.app/review", { name, experience });
+      await axios.post("https://rp2backend.vercel.app/review", { name, experience });
       alert("Name & Experience submitted successfully!");
-      console.log(res1.data);
-    } catch (error) {
+    } catch {
       alert("Failed to submit name & experience");
-      console.error(error);
     }
   }
 
   return (
-    <div className="klulifescore-container">
-      <h2>KLU Life Score Ratings</h2>
+    <div className={styles.container}>
+      <div className={styles.card}>
+        <h2 className={styles.title}>KLU Life Score Ratings</h2>
 
-      <label>
-        Name:
+        <label className={styles.label}>Name:</label>
         <input
           type="text"
           placeholder="Please enter your name"
           value={name}
           onChange={e => setName(e.target.value)}
+          className={styles.input}
         />
-      </label>
-      <br /><br />
 
-      <label>
-        Experience:
+        <label className={styles.label}>Experience:</label>
         <textarea
           placeholder="Give some experience or info about this college"
           value={experience}
           onChange={e => setExperience(e.target.value)}
+          className={styles.textarea}
         />
-      </label>
-      <br /><br />
 
-      {Object.keys(ratings).map(key => (
-        <div key={key}>
-          <label>
-            {key.charAt(0).toUpperCase() + key.slice(1)} Rating (0 to 5):
+        {Object.keys(ratings).map(key => (
+          <div key={key} className={styles.ratingField}>
+            <label className={styles.label}>
+              {key.charAt(0).toUpperCase() + key.slice(1)} Rating (0 to 5):
+            </label>
             <input
               type="number"
               name={key}
@@ -84,13 +78,15 @@ export default function Klulifescore() {
               onChange={handleChange}
               min={0}
               max={5}
+              className={styles.input}
             />
-          </label>
-          <br /><br />
-        </div>
-      ))}
+          </div>
+        ))}
 
-      <button onClick={handleSubmit}>Submit</button>
+        <button onClick={handleSubmit} className={styles.button}>
+          Submit
+        </button>
+      </div>
     </div>
   );
 }

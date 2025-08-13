@@ -62,6 +62,7 @@ function Klupielifescore() {
 
   return (
     <div style={{ display: "flex", gap: "40px", alignItems: "flex-start" }}>
+      {/* Pie Chart */}
       <div>
         <h2>KLU Life Score Ratings</h2>
         <PieChart width={400} height={400}>
@@ -84,6 +85,7 @@ function Klupielifescore() {
         </PieChart>
       </div>
 
+      {/* Reviews Section */}
       <div style={{ flex: 1 }}>
         <h2>Student Reviews</h2>
         {reviews.length > 0 ? (
