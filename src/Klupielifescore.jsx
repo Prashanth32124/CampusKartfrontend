@@ -8,6 +8,7 @@ function Klupielifescore() {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [summary, setSummary] = useState(null);
 
   // Fetch ratings
   useEffect(() => {
@@ -19,22 +20,49 @@ function Klupielifescore() {
       .then((data) => {
         if (data && data.length > 0) {
           const aggregatedRatings = {};
+          let starDist = { "4-5": 0, "3-4": 0, "2-3": 0, "1-2": 0 };
+
           for (const doc of data) {
             if (doc.ratings) {
+              let total = 0;
+              let count = 0;
               for (const key in doc.ratings) {
                 if (Object.hasOwnProperty.call(doc.ratings, key)) {
                   const value = Number(doc.ratings[key]) || 0;
                   aggregatedRatings[key] =
                     (aggregatedRatings[key] || 0) + value;
+                  total += value;
+                  count++;
                 }
               }
+              const avgDoc = total / count;
+              if (avgDoc >= 4) starDist["4-5"]++;
+              else if (avgDoc >= 3) starDist["3-4"]++;
+              else if (avgDoc >= 2) starDist["2-3"]++;
+              else starDist["1-2"]++;
             }
           }
+
           const pieData = Object.keys(aggregatedRatings).map((key) => ({
             category: key.charAt(0).toUpperCase() + key.slice(1),
             score: aggregatedRatings[key],
           }));
+
+          const overall =
+            Object.values(aggregatedRatings).reduce((a, b) => a + b, 0) /
+            (data.length * Object.keys(aggregatedRatings).length);
+
           setRatings(pieData);
+          setSummary({
+            overall: overall.toFixed(1),
+            totalReviews: data.length,
+            starDist: Object.fromEntries(
+              Object.entries(starDist).map(([range, val]) => [
+                range,
+                ((val / data.length) * 100).toFixed(0),
+              ])
+            ),
+          });
         } else {
           setRatings([]);
         }
@@ -83,6 +111,45 @@ function Klupielifescore() {
           <Tooltip />
           <Legend />
         </PieChart>
+
+        {/* Overall Rating Summary */}
+        {summary && (
+          <div style={{ marginTop: "20px" }}>
+            <h3>Overall Rating (Out of 5)</h3>
+            <p style={{ fontSize: "28px", fontWeight: "bold" }}>
+              {summary.overall}
+            </p>
+            <p>Based on {summary.totalReviews} Verified Reviews</p>
+
+            {Object.entries(summary.starDist).map(([range, percent]) => (
+              <div key={range} style={{ margin: "5px 0" }}>
+                <span style={{ width: "60px", display: "inline-block" }}>
+                  {range} star
+                </span>
+                <div
+                  style={{
+                    display: "inline-block",
+                    width: "150px",
+                    background: "#eee",
+                    height: "8px",
+                    margin: "0 10px",
+                    borderRadius: "4px",
+                    overflow: "hidden",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: `${percent}%`,
+                      background: "#ff9900",
+                      height: "100%",
+                    }}
+                  ></div>
+                </div>
+                <span>{percent}%</span>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Reviews Section */}
