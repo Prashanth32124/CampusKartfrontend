@@ -10,7 +10,7 @@ function Login() {
   const [error, setError] = useState("");
 
   const handleLogin = async () => {
-    setError(""); // reset error
+    setError("");
     if (!username || !password) {
       setError("Username and password cannot be empty");
       return;
@@ -23,8 +23,9 @@ function Login() {
       });
 
       if (res.data.success) {
+        localStorage.setItem("token", "yes");
         alert(res.data.message);
-        navigate("/Predict"); // redirect after login
+        navigate("/Predict"); 
       } else {
         setError(res.data.message || "Login failed");
       }
