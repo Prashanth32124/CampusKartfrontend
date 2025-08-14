@@ -1,37 +1,45 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import './CSS/Login.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import "./CSS/Login.css";
 
 function Login() {
   const navigate = useNavigate();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-
-  const handleal = () => {
-    navigate('/AdminLogin');
-  };
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleLogin = async () => {
+    setError(""); // reset error
     if (!username || !password) {
-      setError("Please enter both username and password");
+      setError("Username and password cannot be empty");
       return;
     }
 
     try {
       const res = await axios.post("https://rp2backend.vercel.app/login", {
-        username,
-        password,
+        username: username.trim(),
+        password: password.trim(),
       });
 
-      localStorage.setItem("token", "yes");
-      alert(`Welcome back, ${username}!`);
-      navigate('/Predict');
+      if (res.data.success) {
+        alert(res.data.message);
+        navigate("/Predict"); // redirect after login
+      } else {
+        setError(res.data.message || "Login failed");
+      }
     } catch (err) {
-      setError(err.response?.data || "Login failed. Please try again.");
+      if (err.response && err.response.data) {
+        setError(err.response.data.message || "Server error occurred");
+        console.log("Backend response error:", err.response.data);
+      } else {
+        setError("Network error or server not reachable");
+        console.log("Network error:", err);
+      }
     }
   };
+
+  const handleAdmin = () => navigate("/AdminLogin");
 
   return (
     <>
@@ -41,33 +49,32 @@ function Login() {
       <div id="container1">
         <label className="labelL">Username</label>
         <input
-          id="username"
           type="text"
-          placeholder="Please enter the username"
+          placeholder="Enter username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
 
         <label className="labelL1">Password</label>
         <input
-          id="password"
           type="password"
-          placeholder="Please enter the password"
+          placeholder="Enter password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
 
         <div id="container21240">
-          <button id="bt11" onClick={handleLogin}>Login</button>
-          <button onClick={handleal}>Admin login</button>
+          <button id="bt11" onClick={handleLogin}>
+            Login
+          </button>
+          <button onClick={handleAdmin}>Admin login</button>
         </div>
 
         {error && (
-          <p style={{ color: 'red', textAlign: 'center', marginTop: '10px' }}>
+          <p style={{ color: "red", textAlign: "center", marginTop: "10px" }}>
             {error}
           </p>
         )}
-
       </div>
     </>
   );

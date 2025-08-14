@@ -28,9 +28,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
-        <Route path="/AdminLogin" element={<AdminLogin/>}/>
          <Route path="/Vitupload" element={<Vitupload/>}/>
           <Route path="/Klulifescore" element={<Klulifescore/>}/>
+          <Route path="/AdminLogin" element={<AdminLogin/>}/>
         <Route element={<ProtectedRoute />}>
         <Route path="Klupielifescore" element={<Klupielifescore/>}/>
         <Route path="/Predict" element={<Predict/>}/>
