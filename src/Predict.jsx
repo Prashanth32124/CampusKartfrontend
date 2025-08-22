@@ -19,7 +19,8 @@ A student has the following profile:
 - Preferred Location: ${location}
 
 Suggest 3 best colleges in India that match these preferences and give a short explanation for each.
-    `;
+Don't add any markdown formatting give answer as plain text. 
+`;
 
     try {
       const response = await fetch(
