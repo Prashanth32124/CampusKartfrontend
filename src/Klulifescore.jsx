@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import styles from "./CSS/Klulifescore.module.css";
-
+import { useRef } from "react";
 export default function Klulifescore() {
+  const refbutton=useRef(null);
   const [ratings, setRatings] = useState({
     food: "",
     hostels: "",
@@ -29,6 +30,8 @@ export default function Klulifescore() {
   }
 
   async function handleSubmit() {
+    refbutton.current.disabled = true;
+    refbutton.current.innerText = "Submitting...";
     try {
       await axios.post("https://rp2backend.vercel.app/klulifescore", { ratings });
       alert("Ratings submitted successfully!");
@@ -42,6 +45,23 @@ export default function Klulifescore() {
     } catch {
       alert("Failed to submit name & experience");
     }
+     await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    refbutton.current.disabled = false;
+    refbutton.current.innerText = "Submit";
+
+    setRatings({
+      food: "",
+      hostels: "",
+      clubs: "",
+      placements: "",
+      faculty: "",
+      sports: "",
+      projects: "",
+      trips: ""
+    });
+    setExperience("");
+    setName("");
   }
 
   return (
@@ -83,7 +103,7 @@ export default function Klulifescore() {
           </div>
         ))}
 
-        <button onClick={handleSubmit} className={styles.button}>
+        <button ref={refbutton} onClick={handleSubmit} className={styles.button}>
           Submit
         </button>
       </div>
