@@ -30,7 +30,7 @@ function Newhomepage() {
     });
   };
 
-  const handleImageClick = (collegeSlug) => {
+  const handleImageClick =() => {
     navigate(`/upload`);
   };
 
