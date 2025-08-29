@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './Login';
 import Signup from './Signup';
@@ -21,15 +21,12 @@ import Vitupload from './vit/Vitupload';
 import Klulifescore from './Klulifescore';
 import Klupielifescore from './Klupielifescore';
 import MMhome from './MMhome';
-
 function App() {
-  const [loginUsername, setLoginUsername] = useState("");
-
   return (
     <Router>
       <Routes>
         <Route path="/" element={<MainHome />} />
-        <Route path="/login" element={<Login setLoginUsername={setLoginUsername} />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
         <Route path="/Vitupload" element={<Vitupload />} />
@@ -37,7 +34,7 @@ function App() {
         <Route path="/AdminLogin" element={<AdminLogin />} />
 
         <Route element={<ProtectedRoute />}>
-          <Route path="/MMhome" element={<MMhome loginUsername={loginUsername} />} />
+          <Route path="/MMhome" element={<MMhome/>} />
           <Route path="/Klupielifescore" element={<Klupielifescore />} />
           <Route path="/Predict" element={<Predict />} />
           <Route path="/Feedback" element={<Feedback />} />

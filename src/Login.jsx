@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./CSS/Login.css";
 
-function Login({ setLoginUsername }) {
+function Login() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -23,10 +23,9 @@ function Login({ setLoginUsername }) {
       });
 
      if (res.data.success) {
-  setLoginUsername(username);
-  localStorage.clear();
-localStorage.setItem("name", username);
-  localStorage.setItem("token", "yes");
+      sessionStorage.clear();
+sessionStorage.setItem("name", username);
+  sessionStorage.setItem("token", "yes");
   alert(res.data.message);
   navigate("/MMhome");  
 } else {

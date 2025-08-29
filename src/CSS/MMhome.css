@@ -44,7 +44,7 @@
     border: solid black;
     margin-left:15%;
      position: relative;
-    top: -60px;
+    top: -40px;
     background: linear-gradient(
     to right,
     #c8f6f6, 
@@ -54,5 +54,28 @@
 }
 #l1{
     font-weight: bold;
-    font-size: larger;
+    font-size:x-large;
+}
+#l2{
+    font-weight: bold;
+    font-size:x-large;
+}
+#imgg {
+    width: 100px;   
+    height: 100%;       
+    position: absolute; 
+    right: 0;
+    top: 0;
+    background-image: url("../images/v.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-right:50%;
+    top:-2%;
+}
+#p{
+width:30px;
+margin-left:60%;
+padding:10px;
+border-radius:40px;
 }

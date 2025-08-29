@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import './CSS/MMhome.css';
 import axios from 'axios';
-function MMhome({loginUsername}) {
+import profile from '../src/images/p.png';
+function MMhome() {
   const [images, setImages] = useState([]);
   const [currentIndex, setIndex] = useState(0); 
   const [email,setEmail]=useState();
-
+  const u = sessionStorage.getItem("name");
   useEffect(() => {
     fetch("https://rp2backend.vercel.app/MMhome")
       .then((res) => res.json())
@@ -36,7 +37,7 @@ function MMhome({loginUsername}) {
   }, [currentIndex, images]);
 useEffect(() => {
   const fetchEmail = async () => {
-    if (!loginUsername) return;
+    if (!u) return;
     try {
       const res = await axios.post("https://rp2backend.vercel.app/MMhomed", {
         username: u
@@ -49,14 +50,15 @@ useEffect(() => {
     }
   };
   fetchEmail();
-}, [loginUsername]);
+}, [u]);
 
-const u=localStorage.getItem("name");
   return (
     <div>
       <nav className="myNav11">
         <a href="Predict">Predict</a>
-        <a href="Homepage">Homepage</a>
+        <a href="NewHomepage">Homepage</a>
+        <img id="p" src={profile}/>
+        <label>{u}</label>
       </nav>
 
       <div id="container">
@@ -70,7 +72,10 @@ const u=localStorage.getItem("name");
       </div>
       <div id="c1">
           <label id="l1">Name:{u}</label><br/>
-          <label>Email:{email}</label>
+          <label id="l2">Email:{email}</label>
+      </div>
+      <div id="imgg">
+
       </div>
     </div>
   );
