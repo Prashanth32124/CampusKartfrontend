@@ -77,3 +77,50 @@
 width:30px;
 margin-left:70%;;
 }
+/* Media query for phones */
+/* Media query for phones */
+@media screen and (max-width: 767px) {
+
+  .myNav11 {
+    height: 55px;
+    padding-left: 10px;
+    background-size: 40px 40px;
+  }
+
+  .myNav11 a {
+    font-size: 0.75rem;
+    margin-left: 8px;
+  }
+
+  #container {
+    height: 12%;
+  }
+
+  #c1 {
+    width: 90%;
+    margin-left: 5%;
+    height: 7vh;
+    top: -15px;
+  }
+
+  #l1, #l2 {
+    font-size: medium;
+  }
+
+  #imgg {
+    width: 40px;
+    margin-right: 20%;
+    top: 0;
+  }
+
+  #p {
+    width: 25px;
+    margin-left: 40%;
+  }
+
+  .sliderImage {
+    -webkit-mask-image: linear-gradient(to bottom, rgb(17, 15, 15) 75%, transparent 100%);
+    mask-image: linear-gradient(to bottom, rgb(19, 17, 17) 75%, transparent 100%);
+  }
+}
+
