@@ -51,6 +51,11 @@ useEffect(() => {
   };
   fetchEmail();
 }, [u]);
+window.addEventListener('load', function() {
+    if (window.innerWidth < 1024) {
+        window.location.href = "Predict.js";
+    }
+});
 
   return (
     <div>
