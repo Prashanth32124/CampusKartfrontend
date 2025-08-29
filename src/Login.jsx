@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./CSS/Login.css";
 
-function Login() {
+function Login({ setLoginUsername }) {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -22,11 +22,14 @@ function Login() {
         password: password.trim(),
       });
 
-      if (res.data.success) {
-        localStorage.setItem("token", "yes");
-        alert(res.data.message);
-        navigate("/Predict"); 
-      } else {
+     if (res.data.success) {
+  setLoginUsername(username);
+  localStorage.clear();
+localStorage.setItem("name", username);
+  localStorage.setItem("token", "yes");
+  alert(res.data.message);
+  navigate("/MMhome");  
+} else {
         setError(res.data.message || "Login failed");
       }
     } catch (err) {
