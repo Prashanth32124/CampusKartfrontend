@@ -13,7 +13,7 @@ function MMhome() {
   useEffect(() => {
     const screenWidth = window.innerWidth;
     if (screenWidth < 1024){ 
-      window.location.href = "Predict.js"; 
+      window.location.href = "Predict.jsx"; 
     }
   }, []);
 
