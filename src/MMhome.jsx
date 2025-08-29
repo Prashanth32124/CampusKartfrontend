@@ -2,18 +2,18 @@ import React, { useEffect, useState } from 'react';
 import './CSS/MMhome.css';
 import axios from 'axios';
 import profile from '../src/images/p.png';
-
+import { useNavigate } from 'react-router-dom';
 function MMhome() {
   const [images, setImages] = useState([]);
   const [currentIndex, setIndex] = useState(0); 
   const [email, setEmail] = useState();
   const u = sessionStorage.getItem("name");
-
+  const navigate = useNavigate();
  
   useEffect(() => {
     const screenWidth = window.innerWidth;
     if (screenWidth < 1024){ 
-      window.location.href = "Predict.jsx"; 
+      navigate('/Predict');
     }
   }, []);
 
