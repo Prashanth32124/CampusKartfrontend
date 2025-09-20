@@ -5,20 +5,19 @@ function Dashboard() {
   const username = localStorage.getItem("username");
 
   useEffect(() => {
-  if (username) {
-    const formattedUsername = username.replace(/\s+/g, '');
-    fetch(`https://rp2backend.vercel.app/Dashboard?formattedUsername=${formattedUsername}`)
-      .then(res => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
-        return res.json();
-      })
-      .then(data => setUser(data))
-      .catch(err => console.error("Fetch error:", err));
-  }
-}, [username]);
-
+    if (username) {
+      const formattedUsername = username.replace(/\s+/g, '');
+      fetch(`https://rp2backend.vercel.app/Dashboard?formattedUsername=${formattedUsername}`)
+        .then(res => {
+          if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+          }
+          return res.json();
+        })
+        .then(data => setUser(data))
+        .catch(err => console.error("Fetch error:", err));
+    }
+  }, [username]);
 
   if (!username) return <h2>No user logged in</h2>;
   if (!user) return <h2>Loading...</h2>;
@@ -33,7 +32,6 @@ function Dashboard() {
             <th>Name</th>
             <th>Country</th>
             <th>Gender</th>
-            <th>Date of Birth</th>
             <th>Type</th>
             <th>Status</th>
             <th>Risk</th>
@@ -45,12 +43,6 @@ function Dashboard() {
             <td>{user.Name}</td>
             <td>{user.Country}</td>
             <td>{user.Gender}</td>
-            
-            <td>
-              {user.DateOfBirth 
-                ? new Date(user.DateOfBirth).toLocaleDateString() 
-                : 'Not available'}
-            </td>
             <td>{user.Type}</td>
             <td>{user.Status}</td>
             <td>{user.Risk}</td>
