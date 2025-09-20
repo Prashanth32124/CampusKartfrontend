@@ -5,21 +5,20 @@ function Dashboard() {
   const username = localStorage.getItem("username");
 
   useEffect(() => {
-    if (username) {
-      const formattedUsername = username.replace(/\s+/g, '');
-      fetch(`https://rp2backend.vercel.app/Dashboard?username=${formattedUsername}`)
-        .then(res => {
-          if (!res.ok) {
-            throw new Error(`HTTP error! status: ${res.status}`);
-          }
-          return res.json();
-        })
-        .then(data => {
-          setUser(data);
-        })
-        .catch(err => console.error("Fetch error:", err));
-    }
-  }, [username]);
+  if (username) {
+    const formattedUsername = username.replace(/\s+/g, '');
+    fetch(`https://rp2backend.vercel.app/Dashboard?formattedUsername=${formattedUsername}`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then(data => setUser(data))
+      .catch(err => console.error("Fetch error:", err));
+  }
+}, [username]);
+
 
   if (!username) return <h2>No user logged in</h2>;
   if (!user) return <h2>Loading...</h2>;
