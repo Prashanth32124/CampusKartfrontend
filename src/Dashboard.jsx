@@ -24,7 +24,7 @@ function Dashboard() {
 
   return (
     <div>
-      <h1>Dashboard</h1>
+      <h1> welxome back to the Dashboard {formattedUsername}</h1>
       <table border="1" cellPadding="5" cellSpacing="0">
         <thead>
           <tr>
