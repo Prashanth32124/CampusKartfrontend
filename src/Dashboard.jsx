@@ -6,21 +6,23 @@ function Dashboard() {
 
   useEffect(() => {
   if (username) {
+    console.log("Fetching user:", username);
     fetch(`https://rp2backend.vercel.app/Dashboard?username=${username}`)
-      .then((res) => res.json())
-      .then((data) => setUser(data))
-      .catch((err) => console.error(err));
+      .then(res => {
+        console.log("Response status:", res.status);
+        return res.json();
+      })
+      .then(data => {
+        console.log("Fetched data:", data);
+        setUser(data);
+      })
+      .catch(err => console.error("Fetch error:", err));
   }
 }, [username]);
 
 
-  if (!username) {
-    return <h2>No user logged in</h2>;
-  }
-
-  if (!user) {
-    return <h2>Loading...</h2>;
-  }
+  if (!username) return <h2>No user logged in</h2>;
+  if (!user) return <h2>Loading...</h2>;
 
   return (
     <div>
@@ -44,7 +46,7 @@ function Dashboard() {
             <td>{user.Name}</td>
             <td>{user.Country}</td>
             <td>{user.Gender}</td>
-            <td>{user.DateOfBirth}</td>
+            <td>{new Date(user.DateOfBirth).toLocaleDateString()}</td>
             <td>{user.Type}</td>
             <td>{user.Status}</td>
             <td>{user.Risk}</td>
