@@ -21,6 +21,7 @@ import Vitupload from './vit/Vitupload';
 import Klulifescore from './Klulifescore';
 import Klupielifescore from './Klupielifescore';
 import MMhome from './MMhome';
+import Dashboard from './Dashboard';
 function App() {
   return (
     <Router>
@@ -32,7 +33,7 @@ function App() {
         <Route path="/Vitupload" element={<Vitupload />} />
         <Route path="/Klulifescore" element={<Klulifescore />} />
         <Route path="/AdminLogin" element={<AdminLogin />} />
-
+        <Route path="/Dashboard" element={<Dashboard/>}/>
         <Route element={<ProtectedRoute />}>
           <Route path="/MMhome" element={<MMhome/>} />
           <Route path="/Klupielifescore" element={<Klupielifescore />} />
