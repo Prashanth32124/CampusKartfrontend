@@ -9,6 +9,9 @@ function MainHome() {
           <li><a href="/Home">About</a></li>
           <li><a href="/login">Signin</a></li>
           <li><a href="/signup">Signup</a></li>
+          <li><a href="/NewHomepage">Homepage</a></li>
+          <li><a href="/Predict">AI College Predictor</a></li>
+
         </ul>
       </nav>
 

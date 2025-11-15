@@ -2,88 +2,76 @@ import React, { useEffect, useState } from 'react';
 import './CSS/Upload.css';
 import { set, get } from 'idb-keyval';
 
+// Split WORDS into letters
+const splitWord = (text) => {
+  return text.split(" ").map((word, i) => (
+    <span key={i} className="word">
+      {word.split("").map((char, j) => (
+        <span key={j} className="letter">{char}</span>
+      ))}
+      &nbsp;
+    </span>
+  ));
+};
+
 function Upload() {
   const [images, setImages] = useState([]);
   const [index, setIndex] = useState(0);
   const totalcountofimages = images.length;
 
   useEffect(() => {
-    get('klu_images')
-    .then(cachedImages => {
-    if (cachedImages) setImages(cachedImages);
-  });
+    get('klu_images').then(cachedImages => {
+      if (cachedImages) setImages(cachedImages);
+    });
+
     fetch('https://rp2backend.vercel.app/klimages')
       .then(res => res.json())
       .then(data => {
         set('klu_images', data);
-        setImages(data)
+        setImages(data);
       })
-
       .catch(err => console.log(err));
   }, []);
 
-
-  if (images.length === 0) {
+  if (!images.length) {
     return <p>Loading data, please wait...</p>;
   }
 
-
   const left = () => {
-    if (index <= 0) {
-      setIndex(images.length - 1);
-    } else {
-      setIndex(index - 1);
-    }
+    setIndex(index <= 0 ? images.length - 1 : index - 1);
   };
 
-
   const right = () => {
-    if (index >= images.length - 1) {
-      setIndex(0);
-    } else {
-      setIndex(index + 1);
-    }
+    setIndex(index >= images.length - 1 ? 0 : index + 1);
   };
 
   return (
     <div>
       <nav>
-        <ul>
-<li><a href="Klinfo">College Information & Overview</a></li>
-<li><a href="details">Admission Requirements & Checklist</a></li>
-<li><a href="upload">Document Upload Portal</a></li>
-<li><a href="Klupielifescore"> KluLifeScore</a></li>
-<li><a href="Klulifescore"> Provide Feedback</a></li>
-<li><a href="Newhomepage">← Back to College Listings</a></li>
+  <ul>
+    <li><a href="Klinfo">College Information & Overview</a></li>
+    <li><a href="details">Admission Requirements & Checklist</a></li>
+    <li><a href="upload">Document Upload Portal</a></li>
+    <li><a href="Klupielifescore">KluLifeScore</a></li>
+    <li><a href="Klulifescore">Provide Feedback</a></li>
+    <li><a href="Newhomepage">← Back to College Listings</a></li>
+  </ul>
+</nav>
 
-        </ul>
-      </nav>
-
-      <p>
-        Welcome to Koneru Lakshmaiah University — where innovation meets tradition.
-        Explore the vibrant campus through our curated gallery showcasing the architectural brilliance and world-class facilities that define KLU.
-        Our campus features state-of-the-art infrastructure designed to foster academic excellence and holistic growth.
-        The main college building stands as a symbol of our commitment to quality education, combining modern architecture with functional spaces.
-        The university library is a treasure trove of knowledge, equipped with extensive resources and digital access to support research and learning.
-        Our advanced laboratories provide students hands-on experience with cutting-edge technology, nurturing innovation across disciplines.
-        At KLU, we believe in balancing academics with physical well-being.
-        Our expansive playgrounds and sports complexes encourage students to pursue excellence beyond the classroom.
-        From well-maintained basketball courts to multi-purpose fields, our facilities cater to a wide range of sports and recreational activities.
-        Whether it’s cricket, volleyball, or athletics, our campus offers the perfect environment for students to compete, train, and unwind.
-      </p>
 
       <div id="gettedimagescont">
         <p id="count">{totalcountofimages} photos</p>
-        <button id="left" onClick={left}>Left</button>
+
+        <button id="left" onClick={left}>◀</button>
 
         <img
           src={`data:${images[index].imageType};base64,${images[index].imageData}`}
-          style={{ maxWidth: '100%' }}
-          alt="Campus view"
+          alt="Campus View"
         />
 
         <p>{images[index].imageDes}</p>
-        <button id="right" onClick={right}>Right</button>
+
+        <button id="right" onClick={right}>▶</button>
       </div>
     </div>
   );

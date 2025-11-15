@@ -10,7 +10,7 @@ function Klupielifescore() {
   const [error, setError] = useState(null);
   const [summary, setSummary] = useState(null);
 
-  // Fetch ratings
+
   useEffect(() => {
     fetch("https://rp2backend.vercel.app/klulifescore")
       .then((res) => {

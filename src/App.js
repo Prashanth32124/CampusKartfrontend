@@ -33,7 +33,6 @@ function App() {
         <Route path="/Vitupload" element={<Vitupload />} />
         <Route path="/Klulifescore" element={<Klulifescore />} />
         <Route path="/AdminLogin" element={<AdminLogin />} />
-        <Route element={<ProtectedRoute />}>
         <Route path="/Dashboard" element={<Dashboard/>}/>
           <Route path="/MMhome" element={<MMhome/>} />
           <Route path="/Klupielifescore" element={<Klupielifescore />} />
@@ -48,7 +47,6 @@ function App() {
           <Route path="/Klinfo" element={<Klinfo />} />
           <Route path="/details" element={<Details />} />
           <Route path="/Home" element={<Home />} />
-        </Route>
       </Routes>
     </Router>
   );
